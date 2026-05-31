@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actualités · CIAS de la CCSUD</title>
+  <meta name="description" content="Suivez les dernières actualités du CIAS de la CCSUD : événements, actions sociales, projets et avancées sur le territoire du Sud de Mayotte." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+  <div class="tricolore" aria-hidden="true"><span class="bleu"></span><span class="blanc"></span><span class="rouge"></span></div>
+  <nav class="navbar" id="navbar" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="CIAS de la CCSUD · Accueil">
+        <img src="assets/logo-cias.png" alt="CIAS de la CCSUD" class="nav-logo-img" height="44" />
+      </a>
+      <div class="nav-links" role="menubar">
+        <a href="index.html" role="menuitem" data-i18n="nav.home">Accueil</a>
+        <a href="a-propos.html" role="menuitem" data-i18n="nav.about">Le CIAS</a>
+        <a href="gouvernance.html" role="menuitem" data-i18n="nav.gouvernance">Gouvernance</a>
+        <a href="deliberations.html" role="menuitem">Délibérations</a>
+        
+        <a href="projets.html" role="menuitem" data-i18n="nav.projets">Nos projets</a>
+        <a href="actualites.html" role="menuitem" class="active" data-i18n="nav.actualites">Actualités</a>
+        <a href="membres.html" role="menuitem" data-i18n="nav.membres">Les communes</a>
+        <a href="contact.html" class="nav-cta" role="menuitem" data-i18n="nav.contact">Contact</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu" role="menu" aria-label="Menu mobile">
+    <a href="index.html" role="menuitem" data-i18n="nav.home">Accueil</a>
+    <a href="a-propos.html" role="menuitem" data-i18n="nav.about">Le CIAS</a>
+    <a href="gouvernance.html" role="menuitem" data-i18n="nav.gouvernance">Gouvernance</a>
+        <a href="deliberations.html" role="menuitem">Délibérations</a>
+        
+    <a href="projets.html" role="menuitem" data-i18n="nav.projets">Nos projets</a>
+    <a href="actualites.html" role="menuitem" data-i18n="nav.actualites">Actualités</a>
+    <a href="membres.html" role="menuitem" data-i18n="nav.membres">Les communes</a>
+    <a href="contact.html" class="nav-cta" role="menuitem" data-i18n="nav.contact">Contact</a>
+  </div>
+
+  <main id="main">
+  <section class="page-header" style="background-image: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1400&h=500&fit=crop&crop=center&q=75');">
+    <div class="container">
+      <p class="section-label">Informations</p>
+      <h1>Actualités</h1>
+      <p class="page-header-intro">Toutes les dernières nouvelles, actions et événements du CIAS de la CCSUD.</p>
+    </div>
+  </section>
+
+<section style="padding: 1.5rem 0 0;" aria-label="Filtrer les actualités">
+      <div class="container">
+        <div class="blog-filters">
+          <button class="blog-filter active" data-filter="all">Tout</button>
+          <button class="blog-filter" data-filter="insertion">Insertion</button>
+          <button class="blog-filter" data-filter="protection">Protection</button>
+          <button class="blog-filter" data-filter="sante">Santé</button>
+          <button class="blog-filter" data-filter="evenement">Événement</button>
+          <button class="blog-filter" data-filter="partenariat">Partenariat</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:1.5rem;" aria-label="Articles">
+      <div class="container">
+        <div id="actu-featured"></div>
+        <div id="actu-grid" class="actu-grid" style="margin-top:0;"></div>
+      </div>
+    </section>
+
+    <section class="section-cta">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <h3>Vous avez une information à partager ?</h3>
+          <p>Contactez le CIAS pour proposer un événement ou une actualité à relayer.</p>
+          <a href="contact.html" class="btn-white">Nous contacter</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Pied de page">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-cias.png" alt="CIAS" class="footer-logo-img" />
+          <div class="footer-logo-main">CIAS</div>
+          <div class="footer-logo-sub">Communauté de Communes du Sud de Mayotte</div>
+          <p>Établissement public administratif au service des habitants de Bandrélé, Chirongui, Kani-Kéli et Bouéni.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">Le CIAS</a></li>
+            <li><a href="gouvernance.html">Gouvernance</a></li>
+            <li><a href="deliberations.html">Délibérations</a></li>
+            
+            <li><a href="projets.html">Nos projets</a></li>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="membres.html">Les communes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:cias.ccsud@ccsud.yt">cias.ccsud@ccsud.yt</a></li>
+            <li><a href="tel:+33619007814">06 39 007 814</a></li>
+            <li><a href="contact.html">Formulaire de contact</a></li>
+          </ul>
+          <h4 style="margin-top:1rem;">Siège</h4>
+          <ul>
+            <li>43 rue Mkoumafejou, Bandrélé</li>
+            <li>97660 Mayotte</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 CIAS de la CCSUD · Tous droits réservés</span>
+        <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+          <a href="contact.html">Mentions légales</a>
+          <a href="contact.html">Accessibilité</a>
+          <a href="https://fondationstudio.fr" target="_blank" rel="noopener" class="footer-credit-link">Site créé par <strong>Fondation Studio</strong></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="contact.html" class="float-contact" aria-label="Nous contacter">
+    <iconify-icon icon="solar:chat-round-call-bold" width="16" height="16" style="color:white;"></iconify-icon>
+    <span class="float-label">Nous contacter</span>
+  </a>
+  <script src="main.js"></script>
+  <script>
+  (function () {
+    /* Aucun article par défaut — les actualités seront publiées via Sanity CMS */
+    var TAG_SLUG = {'Insertion':'insertion','Protection':'protection','Santé':'sante','Événement':'evenement','Partenariat':'partenariat','Logement':'logement','Jeunesse':'jeunesse'};
+    function formatDate(d) { if (!d) return ''; var months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre']; var p = d.split('-'); if (p.length === 3) return parseInt(p[2]) + ' ' + months[parseInt(p[1]) - 1] + ' ' + p[0]; return d; }
+    function arrow() { return '<iconify-icon icon="solar:arrow-right-bold" width="12" height="12" style="vertical-align:middle;"></iconify-icon>'; }
+    function renderFeatured(a) { var slug = TAG_SLUG[a.tag] || a.tag.toLowerCase(); var img = a.image || 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&h=400&fit=crop'; return '<a class="actu-card-full reveal" data-tag="'+slug+'" href="article.html?id='+a.id+'" style="text-decoration:none;display:grid;"><img src="'+img+'" alt="'+a.title+'" class="actu-card-img" loading="eager" /><div class="actu-card-body"><div class="actu-card-meta"><span class="actu-card-date">'+formatDate(a.date)+'</span><span class="actu-card-tag">'+a.tag+'</span></div><h2 class="actu-card-title" style="font-size:1.2rem;">'+a.title+'</h2><p class="actu-card-excerpt">'+(a.excerpt||'')+'</p><span class="actu-card-link">Lire l\'article complet '+arrow()+'</span></div></a>'; }
+    function renderCard(a, delay) { var slug = TAG_SLUG[a.tag] || a.tag.toLowerCase(); var img = a.image || 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&h=280&fit=crop'; var cls = 'actu-card reveal' + (delay ? ' reveal-delay-'+delay : ''); return '<a class="'+cls+'" data-tag="'+slug+'" href="article.html?id='+a.id+'" style="text-decoration:none;display:block;"><img src="'+img+'" alt="'+a.title+'" class="actu-card-img" loading="lazy" /><div class="actu-card-body"><div class="actu-card-meta"><span class="actu-card-date">'+formatDate(a.date)+'</span><span class="actu-card-tag">'+a.tag+'</span></div><h3 class="actu-card-title">'+a.title+'</h3><p class="actu-card-excerpt">'+(a.excerpt||'')+'</p><span class="actu-card-link">Lire la suite '+arrow()+'</span></div></a>'; }
+    function renderAll(articles) {
+      var sorted = articles.slice().sort(function(a,b){ return new Date(b.date) - new Date(a.date); });
+      var featured = document.getElementById('actu-featured');
+      var grid = document.getElementById('actu-grid');
+      if (!featured || !grid) return;
+      if (sorted.length === 0) {
+        featured.innerHTML = '';
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem 1rem;"><div style="font-size:2.5rem;margin-bottom:1rem;opacity:0.3;">📰</div><h3 style="font-size:1rem;color:var(--c-text);margin-bottom:0.5rem;">Aucune actualité publiée pour le moment</h3><p style="font-size:0.85rem;color:var(--c-text-light);">Les actualités seront disponibles prochainement.</p></div>';
+        return;
+      }
+      featured.innerHTML = renderFeatured(sorted[0]);
+      var rest = sorted.slice(1);
+      grid.innerHTML = rest.map(function(a, i){ return renderCard(a, (i % 6) + 1); }).join('');
+      if (typeof window.initReveal === 'function') window.initReveal();
+    }
+    /* Chargement : localStorage uniquement (sera remplacé par Sanity CMS) */
+    var articles = [];
+    try { var stored = localStorage.getItem('cias-articles'); if (stored) { var parsed = JSON.parse(stored); if (Array.isArray(parsed)) articles = parsed; } } catch(e) {}
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', function(){ renderAll(articles); }); } else { renderAll(articles); }
+  })();
+
+  document.querySelectorAll('.blog-filter').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.blog-filter').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.dataset.filter;
+      document.querySelectorAll('[data-tag]').forEach(function(card) { card.style.display = (filter === 'all' || card.dataset.tag === filter) ? '' : 'none'; });
+    });
+  });
+  </script>
+</body>
+</html>

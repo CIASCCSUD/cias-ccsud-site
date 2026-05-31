@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article · CIAS de la CCSUD</title>
+  <meta name="description" content="Actualités du CIAS de la CCSUD" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
+  <style>
+    .article-hero {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .article-hero img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .article-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(22,22,22,0.7) 0%, rgba(22,22,22,0.2) 60%, transparent 100%);
+    }
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 5rem;
+    }
+    .article-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 600; color: var(--c-bleu);
+      text-decoration: none; margin-bottom: 2rem;
+    }
+    .article-back:hover { text-decoration: underline; }
+    .article-meta {
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .article-date {
+      font-size: 0.65rem; font-weight: 600; color: var(--c-text-light);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .article-tag {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--c-bleu);
+    }
+    .article-tag::before {
+      content: ''; display: inline-block; width: 5px; height: 5px;
+      background: var(--c-bleu); border-radius: 50%;
+    }
+    .article-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800; color: var(--c-text);
+      line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .article-divider {
+      width: 40px; height: 3px; background: var(--c-bleu);
+      margin-bottom: 1.5rem;
+    }
+    .article-body {
+      font-size: 1rem; color: var(--c-text-muted);
+      line-height: 1.8; margin-bottom: 2rem;
+    }
+    .article-body p { margin-bottom: 1.25rem; }
+    .article-cta {
+      border-top: 1px solid var(--c-border-light);
+      padding-top: 2rem; margin-top: 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .article-cta p { font-size: 0.85rem; color: var(--c-text-light); margin: 0; }
+    .article-not-found {
+      text-align: center; padding: 4rem 1.25rem;
+    }
+    @media (max-width: 640px) {
+      .article-hero { height: 220px; }
+      .article-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+  <div class="tricolore" aria-hidden="true"><span class="bleu"></span><span class="blanc"></span><span class="rouge"></span></div>
+  <nav class="navbar" id="navbar" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="CIAS de la CCSUD · Accueil">
+        <img src="assets/logo-cias.png" alt="CIAS de la CCSUD" class="nav-logo-img" height="44" />
+      </a>
+      <div class="nav-links" role="menubar">
+        <a href="index.html" role="menuitem">Accueil</a>
+        <a href="a-propos.html" role="menuitem">Le CIAS</a>
+        <a href="gouvernance.html" role="menuitem">Gouvernance</a>
+        <a href="deliberations.html" role="menuitem">Délibérations</a>
+        
+        <a href="projets.html" role="menuitem">Nos projets</a>
+        <a href="actualites.html" role="menuitem" class="active">Actualités</a>
+        <a href="membres.html" role="menuitem">Les communes</a>
+        <a href="contact.html" class="nav-cta" role="menuitem">Contact</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu" role="menu" aria-label="Menu mobile">
+    <a href="index.html" role="menuitem">Accueil</a>
+    <a href="a-propos.html" role="menuitem">Le CIAS</a>
+    <a href="gouvernance.html" role="menuitem">Gouvernance</a>
+        <a href="deliberations.html" role="menuitem">Délibérations</a>
+        
+    <a href="projets.html" role="menuitem">Nos projets</a>
+    <a href="actualites.html" role="menuitem">Actualités</a>
+    <a href="membres.html" role="menuitem">Les communes</a>
+    <a href="contact.html" class="nav-cta" role="menuitem">Contact</a>
+  </div>
+
+  <main id="main">
+    <div id="article-hero" class="article-hero" style="display:none;">
+      <img id="article-hero-img" src="" alt="" />
+      <div class="article-hero-overlay"></div>
+    </div>
+
+    <div class="article-wrap">
+      <div id="article-content">
+        <div class="article-not-found">
+          <p style="color:var(--c-text-light);">Chargement de l'article...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" aria-label="Pied de page">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-cias.png" alt="CIAS" class="footer-logo-img" />
+          <div class="footer-logo-main">CIAS</div>
+          <div class="footer-logo-sub">Communauté de Communes du Sud de Mayotte</div>
+          <p>Établissement public administratif au service des habitants de Bandrélé, Chirongui, Kani-Kéli et Bouéni.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">Le CIAS</a></li>
+            <li><a href="gouvernance.html">Gouvernance</a></li>
+            <li><a href="deliberations.html">Délibérations</a></li>
+            
+            <li><a href="projets.html">Nos projets</a></li>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="membres.html">Les communes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:cias.ccsud@ccsud.yt">cias.ccsud@ccsud.yt</a></li>
+            <li><a href="tel:+33619007814">06 39 007 814</a></li>
+            <li><a href="contact.html">Formulaire de contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 CIAS de la CCSUD - Tous droits réservés</span>
+        <div style="display:flex; gap: 1.5rem;">
+          <a href="contact.html">Mentions légales</a>
+          <a href="contact.html">Accessibilité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+  (function() {
+    var DEFAULT_ARTICLES = [
+      { id:'d1', title:"Mobil'Sud : le permis de conduire comme passerelle vers l'emploi", date:'2025-04-12', tag:'Insertion', image:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=600&fit=crop&crop=center', excerpt:"Afin de favoriser l'autonomie et l'accès à l'emploi, le CIAS expérimente actuellement le dispositif Mobil'Sud. Ce programme accompagne une vingtaine de jeunes dans l'obtention de leur permis de conduire, un levier essentiel pour accéder à la formation et à l'emploi sur le territoire de la CCSud.", body:"Afin de favoriser l'autonomie et l'accès à l'emploi, le CIAS expérimente actuellement le dispositif Mobil'Sud. Ce programme accompagne une vingtaine de jeunes dans l'obtention de leur permis de conduire, un levier essentiel pour accéder à la formation et à l'emploi sur le territoire de la CCSud.\n\nDans le Sud de Mayotte, l'absence de permis de conduire constitue l'un des principaux obstacles à l'insertion professionnelle. Les zones rurales peu desservies par les transports en commun rendent indispensable la mobilité individuelle pour accéder aux employeurs, aux centres de formation ou aux services publics.\n\nGrâce au dispositif Mobil'Sud, les jeunes bénéficiaires reçoivent une prise en charge financière partielle des frais de formation au permis, ainsi qu'un accompagnement personnalisé par les équipes du CIAS. Un suivi régulier est assuré pour s'assurer que l'obtention du permis se traduit concrètement par une insertion durable dans l'emploi.\n\nCe projet s'inscrit dans la mission globale du CIAS d'accompagner les habitants du Sud de Mayotte vers l'autonomie et l'accès aux droits." },
+      { id:'d2', title:"Lutte contre l'exploitation sexuelle des mineurs : le CIAS se mobilise", date:'2025-03-28', tag:'Protection', image:'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&h=600&fit=crop&crop=center', excerpt:"Le CIAS s'engage résolument dans la lutte contre l'exploitation sexuelle des mineurs. Séminaires institutionnels, sensibilisation du grand public et interventions dans les collèges et lycées du territoire.", body:"Le CIAS s'engage résolument dans la lutte contre l'exploitation sexuelle des mineurs. Face à une problématique qui touche l'ensemble du territoire mahorais, l'établissement a déployé un plan d'action structuré articulé autour de trois axes.\n\nPremier axe : la formation des professionnels. Des séminaires institutionnels réunissent les acteurs de la protection de l'enfance, de l'éducation nationale, de la gendarmerie et des services sociaux pour harmoniser les pratiques et renforcer la détection des situations à risque.\n\nDeuxième axe : la sensibilisation du grand public. Des campagnes de communication sont déployées dans les quatre communes membres, avec des supports adaptés aux réalités culturelles et linguistiques du territoire.\n\nTroisième axe : l'intervention en milieu scolaire. Les équipes du CIAS interviennent directement dans les collèges et lycées pour sensibiliser les jeunes aux risques de l'exploitation sexuelle, aux mécanismes de manipulation et aux ressources d'aide disponibles.\n\nCet engagement s'inscrit dans la mission de protection de l'enfance qui est au coeur de l'action du CIAS de la CCSUD." },
+      { id:'d3', title:"Vers une Maison de santé pluridisciplinaire dans le Sud", date:'2025-03-15', tag:'Santé', image:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=600&fit=crop&crop=center', excerpt:"Le projet de Maison de santé avance pour regrouper médecins, infirmiers, sage-femmes et spécialistes dans un lieu unique, garantissant un accès aux soins équitable pour tous les habitants du Sud.", body:"Le projet de Maison de santé pluridisciplinaire du Sud de Mayotte franchit une nouvelle étape. Ce dispositif vise à regrouper en un lieu unique des professionnels de santé de différentes disciplines, afin de garantir un accès aux soins équitable pour tous les habitants du territoire.\n\nLa désertification médicale constitue l'un des défis majeurs du Sud de Mayotte. Avec un ratio médecin-habitant bien en dessous des moyennes nationales, de nombreuses familles peinent à accéder aux soins primaires. La future Maison de santé ambitionne d'y répondre en proposant consultations médicales, soins infirmiers, suivi sage-femme et accès à des spécialistes en consultations avancées.\n\nLe CIAS pilote ce projet en coordination avec l'Agence Régionale de Santé de Mayotte, la CCSUD et les professionnels de santé du territoire. Une concertation est en cours pour identifier le site le plus accessible à l'ensemble des quatre communes membres.\n\nL'ouverture est envisagée d'ici 18 à 24 mois, avec l'objectif d'accueillir une vingtaine de professionnels de santé dès la première année de fonctionnement." },
+      { id:'d4', title:"Journée portes ouvertes : rencontrez l'équipe du CIAS", date:'2025-03-01', tag:'Événement', image:'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=600&fit=crop&crop=center', excerpt:"Le CIAS organise une journée de rencontres avec les habitants pour présenter ses services et répondre à toutes les questions sur l'accès aux droits sociaux et les dispositifs d'accompagnement.", body:"Le CIAS de la CCSUD a organisé sa première journée portes ouvertes, accueillant plusieurs centaines d'habitants venus découvrir les services et dispositifs proposés par l'établissement.\n\nLes équipes ont présenté l'ensemble des missions du CIAS : accès aux droits, accompagnement à l'insertion professionnelle, soutien au logement, protection de l'enfance et actions culturelles et sportives. Des permanences thématiques ont permis à chaque visiteur d'obtenir des réponses personnalisées à ses questions.\n\nCette journée a également été l'occasion de rencontres directes entre les habitants et les partenaires institutionnels du CIAS : Conseil Départemental, CAF, Pôle Emploi, associations locales. Ces échanges ont confirmé la nécessité de renforcer l'information des habitants sur les droits et dispositifs auxquels ils peuvent prétendre.\n\nFort de ce premier succès, le CIAS envisage de renouveler cette initiative deux fois par an, en alternant les lieux d'accueil entre les quatre communes membres du territoire." },
+      { id:'d5', title:"Le CIAS fédère les acteurs sociaux du territoire", date:'2025-02-15', tag:'Partenariat', image:'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=600&fit=crop&crop=center', excerpt:"Par cette structure, nous souhaitons fédérer les acteurs sociaux, coordonner nos actions et construire un véritable réseau d'entraide au service de chaque habitant du Sud de Mayotte.", body:"Le CIAS de la CCSUD s'impose progressivement comme le pivot de la coordination des acteurs sociaux du Sud de Mayotte. Une réunion de partenariat a rassemblé les représentants de plus de vingt structures oeuvrant sur le territoire.\n\nAssociations d'aide à domicile, structures d'insertion, organismes de formation, acteurs de la protection de l'enfance et services de l'Etat ont participé à cette journée de travail collaboratif. L'objectif : cartographier les actions existantes, identifier les doublons et les angles morts, et construire une meilleure coordination au service des habitants.\n\nLe CIAS a présenté sa plateforme de services, qui permet désormais aux partenaires d'orienter les personnes accompagnées vers les dispositifs les plus adaptés à leur situation. Un comité de coordination se réunira désormais chaque trimestre pour assurer le suivi des actions communes.\n\nCette dynamique de partenariat est indispensable pour répondre à l'ampleur des besoins sociaux du territoire, qui requiert une mobilisation collective et coordonnée de l'ensemble des acteurs." },
+      { id:'d6', title:"Lancement des ateliers et chantiers d'insertion", date:'2025-02-01', tag:'Insertion', image:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=600&fit=crop&crop=center', excerpt:"Le CIAS développe des ateliers et chantiers d'insertion relevant des compétences de la CCSud, pour accompagner les personnes éloignées du marché du travail vers l'emploi durable.", body:"Le CIAS de la CCSUD lance officiellement ses premiers ateliers et chantiers d'insertion, un dispositif phare pour accompagner les personnes les plus éloignées du marché du travail vers un emploi durable.\n\nLes ateliers et chantiers d'insertion combinent une activité professionnelle encadrée avec un accompagnement social et professionnel personnalisé. Les bénéficiaires acquièrent des compétences pratiques tout en bénéficiant d'un suivi renforcé pour lever les freins à l'emploi : mobilité, logement, santé, garde d'enfants.\n\nLes premiers chantiers portent sur des travaux d'entretien des espaces verts et de valorisation du patrimoine naturel du territoire, en partenariat avec les communes membres de la CCSUD. Une trentaine de personnes bénéficient de ce dispositif lors de cette première phase.\n\nL'objectif du CIAS est d'accompagner chaque participant vers une sortie positive : emploi classique, formation qualifiante ou création d'activité. Un bilan sera dressé après six mois de fonctionnement pour ajuster et développer le programme." }
+    ];
+
+    function formatDate(d) {
+      if (!d) return '';
+      var months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+      var p = d.split('-');
+      if (p.length === 3) return parseInt(p[2]) + ' ' + months[parseInt(p[1]) - 1] + ' ' + p[0];
+      return d;
+    }
+
+    function getParam(name) {
+      var params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function findArticle(id) {
+      var articles = DEFAULT_ARTICLES;
+      try {
+        var stored = localStorage.getItem('cias-articles');
+        if (stored) {
+          var parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) articles = parsed;
+        }
+      } catch(e) {}
+      return articles.find(function(a) { return a.id === id; }) || null;
+    }
+
+    function renderArticle(a) {
+      document.title = a.title + ' · CIAS de la CCSUD';
+
+      var hero = document.getElementById('article-hero');
+      var heroImg = document.getElementById('article-hero-img');
+      if (a.image) {
+        heroImg.src = a.image;
+        heroImg.alt = a.title;
+        hero.style.display = '';
+      }
+
+      var bodyHtml = '';
+      var paragraphs = (a.body || a.excerpt || '').split('\n\n');
+      paragraphs.forEach(function(p) {
+        if (p.trim()) bodyHtml += '<p>' + p.trim() + '</p>';
+      });
+
+      document.getElementById('article-content').innerHTML =
+        '<a href="actualites.html" class="article-back">' +
+        '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
+        ' Retour aux actualités</a>' +
+        '<div class="article-meta">' +
+        '<span class="article-date">' + formatDate(a.date) + '</span>' +
+        '<span class="article-tag">' + a.tag + '</span>' +
+        '</div>' +
+        '<h1 class="article-title">' + a.title + '</h1>' +
+        '<div class="article-divider"></div>' +
+        '<div class="article-body">' + bodyHtml + '</div>' +
+        '<div class="article-cta">' +
+        '<p>Une question sur cette actualité ?</p>' +
+        '<a href="contact.html" class="btn btn-primary" style="font-size:0.82rem;padding:0.55rem 1.25rem;">Contacter le CIAS</a>' +
+        '</div>';
+    }
+
+    function renderNotFound() {
+      document.getElementById('article-content').innerHTML =
+        '<a href="actualites.html" class="article-back">' +
+        '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
+        ' Retour aux actualités</a>' +
+        '<div class="article-not-found">' +
+        '<h2 style="font-size:1.2rem;margin-bottom:0.5rem;">Article introuvable</h2>' +
+        '<p style="color:var(--c-text-light);">Cet article n\'existe pas ou a été supprimé.</p>' +
+        '</div>';
+    }
+
+    var id = getParam('id');
+    if (id) {
+      var article = findArticle(id);
+      if (article) {
+        renderArticle(article);
+      } else {
+        renderNotFound();
+      }
+    } else {
+      renderNotFound();
+    }
+  })();
+  </script>
+</body>
+</html>
