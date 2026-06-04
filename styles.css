@@ -2673,12 +2673,13 @@ html { scroll-behavior: smooth; }
 .actu-empty p { font-size: 0.85rem; color: var(--c-text-light); line-height: 1.6; margin: 0; }
 
 /* ===================================================================
-   ORGANIGRAMME · refonte fidèle (desktop = arbre, mobile = pile)
+   ORGANIGRAMME · refonte (desktop = arbre large, mobile = grille 2 col)
    =================================================================== */
-.orgchart { max-width: 920px; margin: 2.5rem auto 0; }
+:root { --org-dash: rgba(58,125,92,.45); }
+.orgchart { max-width: 1140px; margin: 2.5rem auto 0; }
 
 .orgchart-top { display: flex; justify-content: center; }
-.orgchart-row { display: grid; gap: 1.25rem; }
+.orgchart-row { display: grid; gap: 1.5rem; }
 .orgchart-row--4 { grid-template-columns: repeat(4, 1fr); }
 .orgchart-row--2 { grid-template-columns: 1fr 1fr; }
 
@@ -2687,8 +2688,8 @@ html { scroll-behavior: smooth; }
   position: relative;
   background: #fff;
   border: 1px solid var(--c-border);
-  border-radius: 14px;
-  padding: 1.5rem 1.25rem;
+  border-radius: 16px;
+  padding: 1.65rem 1.5rem;
   text-align: center;
   cursor: pointer;
   transition: border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
@@ -2699,36 +2700,43 @@ html { scroll-behavior: smooth; }
 .orgchart-node:hover { border-color: var(--c-bleu); box-shadow: 0 14px 34px rgba(58,125,92,.12); transform: translateY(-3px); }
 .orgchart-node:focus-visible { outline: 2px solid var(--c-bleu); outline-offset: 3px; }
 
-.orgchart-node--ca { max-width: 600px; width: 100%; padding: 2rem 2.25rem; }
+.orgchart-node--ca { max-width: 680px; width: 100%; padding: 2.25rem 2.5rem; }
 
 .orgchart-icon {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 54px; height: 54px; border-radius: 50%;
+  width: 54px; height: 54px; border-radius: 50%; aspect-ratio: 1;
   background: var(--c-bleu); color: #fff; margin-bottom: .9rem; flex-shrink: 0;
 }
-.orgchart-node--ca .orgchart-icon { width: 62px; height: 62px; }
+.orgchart-node--ca .orgchart-icon { width: 64px; height: 64px; }
 
-.orgchart-node-title { font-size: 1.3rem; color: var(--c-text); margin: 0 0 .65rem; }
+.orgchart-node-title { font-size: 1.35rem; color: var(--c-text); margin: 0 0 .65rem; }
 .orgchart-badge {
   display: inline-block; background: var(--c-bleu); color: #fff;
   font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   padding: .32rem .85rem; border-radius: 999px; margin-bottom: .85rem;
 }
-.orgchart-node-desc { font-size: .9rem; color: var(--c-text-muted); line-height: 1.6; margin: 0; }
+.orgchart-node-desc { font-size: .92rem; color: var(--c-text-muted); line-height: 1.6; margin: 0; max-width: 460px; }
 
-.orgchart-node-name { font-size: 1.02rem; color: var(--c-text); margin: 0 0 .9rem; line-height: 1.3; }
-.orgchart-node-name-sub { font-size: .82rem; color: var(--c-text-light); font-weight: 500; }
-
-.orgchart-avatar { width: 86px; height: 86px; border-radius: 50%; overflow: hidden; margin: 0 auto .8rem; border: 3px solid var(--c-bg-alt); flex-shrink: 0; }
-.orgchart-avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-.orgchart-illu {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 86px; height: 86px; border-radius: 50%; background: var(--c-bg-alt);
-  color: var(--c-bleu); margin: 0 auto .85rem;
+/* Titre des 4 cartes : hauteur fixe => médaillons tous alignés sur la même ligne */
+.orgchart-row--4 .orgchart-node-name {
+  font-size: 1.02rem; color: var(--c-text); margin: 0 0 1rem; line-height: 1.3;
+  height: 2.8em; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .1rem;
 }
+.orgchart-node-name { font-size: 1.02rem; color: var(--c-text); line-height: 1.3; }
+.orgchart-node-name-sub { display: block; font-size: .8rem; color: var(--c-text-light); font-weight: 500; }
+
+/* Médaillon rond unique (avatar OU illustration) : dimensions identiques, jamais d'ovale */
+.orgchart-avatar, .orgchart-illu {
+  width: 92px; height: 92px; aspect-ratio: 1; border-radius: 50%;
+  flex-shrink: 0; margin: 0 auto .9rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.orgchart-avatar { overflow: hidden; border: 3px solid var(--c-bg-alt); }
+.orgchart-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.orgchart-illu { background: var(--c-bg-alt); color: var(--c-bleu); }
+
 .orgchart-node-person { font-size: .98rem; font-weight: 700; color: var(--c-bleu); margin: 0 0 .15rem; }
-.orgchart-node-sub { font-size: .84rem; color: var(--c-text-muted); line-height: 1.55; margin: 0 0 .9rem; }
+.orgchart-node-sub { font-size: .85rem; color: var(--c-text-muted); line-height: 1.55; margin: 0 0 .9rem; }
 .orgchart-node-sub--strong { color: var(--c-bleu); font-weight: 600; margin-bottom: .35rem; }
 
 .orgchart-link {
@@ -2740,48 +2748,66 @@ html { scroll-behavior: smooth; }
 
 /* Cartes larges (Direction / Services) : contenu aligné à gauche */
 .orgchart-node--wide { text-align: left; align-items: stretch; }
-.orgchart-node--wide .orgchart-node-head { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
-.orgchart-node--wide .orgchart-icon { width: 46px; height: 46px; margin: 0; }
+.orgchart-node--wide .orgchart-node-head { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.1rem; }
+.orgchart-node--wide .orgchart-icon { width: 48px; height: 48px; margin: 0; }
 .orgchart-node--wide .orgchart-node-name { margin: 0; }
-.orgchart-node--wide .orgchart-node-body { display: flex; gap: 1.1rem; align-items: flex-start; }
+.orgchart-node--wide .orgchart-node-body { display: flex; gap: 1.25rem; align-items: center; }
 .orgchart-node--wide .orgchart-avatar, .orgchart-node--wide .orgchart-illu { margin: 0; }
-.orgchart-node--wide .orgchart-link { margin-top: .4rem; }
+.orgchart-node--wide .orgchart-link { margin-top: .5rem; }
 
-/* Connecteurs en pointillés */
-.orgchart-trunk { width: 2px; height: 34px; margin: 0 auto; border-left: 2px dashed var(--c-border); }
-.orgchart-row--4 { position: relative; }
+/* ── Connecteurs en pointillés verts, symétriques et tous reliés ── */
+.orgchart-trunk { width: 0; height: 36px; margin: 0 auto; border-left: 2px dashed var(--org-dash); }
+.orgchart-row { position: relative; }
+/* barre horizontale reliant les colonnes */
 .orgchart-row--4::before {
-  content: ''; position: absolute; top: -18px; left: 12.5%; right: 12.5%;
-  border-top: 2px dashed var(--c-border);
+  content: ''; position: absolute; top: -20px; left: 12.5%; right: 12.5%;
+  border-top: 2px dashed var(--org-dash);
 }
-.orgchart-row--4 > .orgchart-node::before {
-  content: ''; position: absolute; top: -18px; left: 50%; width: 2px; height: 18px;
-  border-left: 2px dashed var(--c-border);
+.orgchart-row--2::before {
+  content: ''; position: absolute; top: -20px; left: 25%; right: 25%;
+  border-top: 2px dashed var(--org-dash);
+}
+/* descente verticale vers chaque carte */
+.orgchart-row--4 > .orgchart-node::before,
+.orgchart-row--2 > .orgchart-node::before {
+  content: ''; position: absolute; top: -20px; left: 50%; width: 0; height: 20px;
+  border-left: 2px dashed var(--org-dash);
 }
 
 /* Bandeau territoire */
 .orgchart-banner {
-  margin-top: 2.5rem; background: #fff; border: 1px solid var(--c-border); border-radius: 14px;
-  padding: 1.5rem 1.75rem; display: flex; align-items: center; gap: 1.25rem;
+  margin-top: 2.75rem; background: #fff; border: 1px solid var(--c-border); border-radius: 16px;
+  padding: 1.65rem 2rem; display: flex; align-items: center; gap: 1.5rem;
 }
 .orgchart-banner-icon {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 60px; height: 60px; border-radius: 14px; background: var(--c-bleu); color: #fff; flex-shrink: 0;
+  width: 62px; height: 62px; border-radius: 14px; background: var(--c-bleu); color: #fff; flex-shrink: 0;
 }
 .orgchart-banner-text { flex: 1; }
-.orgchart-banner-text h4 { font-size: 1.1rem; color: var(--c-text); margin: 0 0 .35rem; }
-.orgchart-banner-text p { font-size: .88rem; color: var(--c-text-muted); line-height: 1.6; margin: 0; }
+.orgchart-banner-text h4 { font-size: 1.15rem; color: var(--c-text); margin: 0 0 .35rem; }
+.orgchart-banner-text p { font-size: .9rem; color: var(--c-text-muted); line-height: 1.6; margin: 0; }
 .orgchart-banner-btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: .45rem; }
 
-/* ── Mobile / tablette : on empile tout en une colonne ── */
+/* ── Tablette : 4 colonnes -> 2x2, cartes larges -> empilées ── */
 @media (max-width: 860px) {
-  .orgchart { max-width: 460px; }
-  .orgchart-row--4, .orgchart-row--2 { grid-template-columns: 1fr; gap: 1rem; }
-  .orgchart-row--4::before, .orgchart-row--4 > .orgchart-node::before { display: none; }
+  .orgchart { max-width: 540px; }
+  .orgchart-row--4 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .orgchart-row--2 { grid-template-columns: 1fr; gap: 1rem; }
+  /* connecteurs : on garde une descente centrale propre */
+  .orgchart-row--4::before { left: 25%; right: 25%; }
+  .orgchart-row--2::before { display: none; }
+  .orgchart-row--2 > .orgchart-node::before { display: none; }
   .orgchart-node--ca { max-width: none; }
   .orgchart-trunk--mid { height: 28px; }
-  .orgchart-row--4 .orgchart-node, .orgchart-row--2 .orgchart-node { text-align: left; align-items: stretch; }
-  .orgchart-row--4 .orgchart-icon, .orgchart-row--4 .orgchart-avatar, .orgchart-row--4 .orgchart-illu { margin-left: 0; margin-right: 0; }
   .orgchart-banner { flex-direction: column; text-align: center; }
   .orgchart-banner-text { text-align: center; }
+}
+
+/* ── Mobile étroit : 4 colonnes restent en 2x2 compactes ── */
+@media (max-width: 480px) {
+  .orgchart-row--4 { gap: .75rem; }
+  .orgchart-row--4 .orgchart-node { padding: 1.25rem .9rem; }
+  .orgchart-row--4 .orgchart-node-name { min-height: 2.6em; font-size: .92rem; }
+  .orgchart-avatar, .orgchart-illu { width: 76px; height: 76px; }
+  .orgchart-node--wide .orgchart-node-body { flex-direction: column; align-items: flex-start; text-align: left; }
 }
