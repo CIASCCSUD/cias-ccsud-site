@@ -1,10 +1,10 @@
 /**
- * CIAS de la CCSUD — Système multilingue FR / SHIMAORÉ
+ * CIAS de la CCSUD · Système multilingue FR / SHIMAORÉ
  * ======================================================
  *
  * Usage : ajouter data-i18n="clé" sur les éléments HTML à traduire.
  *
- * ⚠️  Traductions Shimaoré préliminaires — validation par un locuteur natif
+ * ⚠️  Traductions Shimaoré préliminaires : validation par un locuteur natif
  *     requise avant mise en production.
  * ⚠️  Les clés sans traduction SHI tombent automatiquement sur la version FR.
  */

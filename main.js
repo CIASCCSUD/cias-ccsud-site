@@ -114,7 +114,7 @@ if (formBtn) {
           access_key: 'bedd96f8-581d-4384-a3ce-7d21ce8c6b44',
           name: nom,
           email: email,
-          phone: tel || '—',
+          phone: tel || 'Non renseigné',
           subject: sujet ? `[CIAS] ${sujet}` : '[CIAS] Nouveau message',
           message: message,
           from_name: 'Formulaire CIAS CCSUD'

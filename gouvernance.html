@@ -59,56 +59,96 @@
       <div class="container">
         <div class="gov-header">
           <p class="section-label reveal">Structure</p>
-          <h2 class="section-title reveal reveal-delay-1">Organigramme du CIAS</h2>
+          <h2 class="section-title reveal reveal-delay-1">Organigramme du Centre Intercommunal d'Action Sociale</h2>
           <p class="section-intro reveal reveal-delay-2">Cliquez sur chaque carte pour découvrir le rôle et le profil de chaque membre de la gouvernance.</p>
         </div>
-        <div class="org-chart org-chart-v2">
-          <!-- Niveau 1 : Président -->
-          <div class="org-level reveal reveal-delay-1">
-            <div class="org-card org-card-lvl1 org-card-photo" data-person="president" tabindex="0" role="button" aria-label="Voir le profil du Président">
-              <span class="org-card-rank">N°1</span>
-              <div class="org-card-avatar">
-                <img src="assets/president-cias.jpg" alt="DJAE Wirdani, Président du CIAS" loading="lazy" />
+        <div class="orgchart">
+          <!-- Niveau 1 : Conseil d'Administration -->
+          <div class="orgchart-top reveal reveal-delay-1">
+            <div class="orgchart-node orgchart-node--ca" data-person="ca" tabindex="0" role="button" aria-label="Voir le détail du Conseil d'Administration">
+              <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-two-rounded-bold" width="28" height="28"></iconify-icon></span>
+              <h3 class="orgchart-node-title">Conseil d'Administration</h3>
+              <span class="orgchart-badge">Organe décisionnel</span>
+              <p class="orgchart-node-desc">Le Conseil d'Administration délibère et prend les décisions relatives à l'ensemble des actions portées par le CIAS.</p>
+            </div>
+          </div>
+
+          <div class="orgchart-trunk" aria-hidden="true"></div>
+
+          <!-- Niveau 2 : 4 composantes -->
+          <div class="orgchart-row orgchart-row--4 reveal reveal-delay-2">
+            <div class="orgchart-node orgchart-node--photo" data-person="president" tabindex="0" role="button" aria-label="Voir le profil du Président">
+              <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:user-bold" width="22" height="22"></iconify-icon></span>
+              <h4 class="orgchart-node-name">Président<br>du CIAS</h4>
+              <div class="orgchart-avatar"><img src="assets/president-cias.jpg" alt="DJAE Wirdani, Président du CIAS" loading="lazy" /></div>
+              <p class="orgchart-node-person">DJAE Wirdani</p>
+              <p class="orgchart-node-sub">Président de la CCSUD</p>
+              <span class="orgchart-link">Voir le profil <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
+            </div>
+            <div class="orgchart-node" data-person="vice" tabindex="0" role="button" aria-label="En savoir plus sur la Vice-présidence">
+              <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-bold" width="22" height="22"></iconify-icon></span>
+              <h4 class="orgchart-node-name">Vice-présidence</h4>
+              <span class="orgchart-illu" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-linear" width="48" height="48"></iconify-icon></span>
+              <p class="orgchart-node-sub">Assure la représentation du Président et la continuité des actions du CIAS.</p>
+              <span class="orgchart-link">En savoir plus <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
+            </div>
+            <div class="orgchart-node" data-person="administrateurs" tabindex="0" role="button" aria-label="Voir la liste des administrateurs">
+              <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-bold" width="22" height="22"></iconify-icon></span>
+              <h4 class="orgchart-node-name">Administrateurs<br><span class="orgchart-node-name-sub">(élus communautaires)</span></h4>
+              <span class="orgchart-illu" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-linear" width="48" height="48"></iconify-icon></span>
+              <p class="orgchart-node-sub">Membres élus de la Communauté de Communes du Sud de Mayotte.</p>
+              <span class="orgchart-link">Voir la liste <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
+            </div>
+            <div class="orgchart-node" data-person="representants" tabindex="0" role="button" aria-label="Voir la liste des représentants du territoire">
+              <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:hand-heart-bold" width="22" height="22"></iconify-icon></span>
+              <h4 class="orgchart-node-name">Représentants<br>du territoire</h4>
+              <span class="orgchart-illu" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-linear" width="48" height="48"></iconify-icon></span>
+              <p class="orgchart-node-sub">Représentants des associations, partenaires et acteurs locaux.</p>
+              <span class="orgchart-link">Voir la liste <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
+            </div>
+          </div>
+
+          <div class="orgchart-trunk orgchart-trunk--mid" aria-hidden="true"></div>
+
+          <!-- Niveau 3 : Direction & Services -->
+          <div class="orgchart-row orgchart-row--2 reveal reveal-delay-3">
+            <div class="orgchart-node orgchart-node--wide orgchart-node--photo" data-person="directeur" tabindex="0" role="button" aria-label="Voir le profil du Directeur général">
+              <div class="orgchart-node-head">
+                <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:case-minimalistic-bold" width="22" height="22"></iconify-icon></span>
+                <h4 class="orgchart-node-name">Direction Générale</h4>
               </div>
-              <div class="org-card-label">Président</div>
-              <div class="org-card-role">DJAE Wirdani</div>
-              <div class="org-card-name">Président de la CCSUD</div>
-              <div class="org-card-cta">Voir le profil
-                <iconify-icon icon="solar:arrow-right-bold" width="11" height="11" aria-hidden="true"></iconify-icon>
+              <div class="orgchart-node-body">
+                <div class="orgchart-avatar"><img src="assets/directeur-cias.jpg" alt="Saïd Gaba ABDOU, Directeur du CIAS" loading="lazy" /></div>
+                <div>
+                  <p class="orgchart-node-sub orgchart-node-sub--strong">Direction générale</p>
+                  <p class="orgchart-node-sub">Met en œuvre les décisions du Conseil d'Administration et pilote les services du CIAS.</p>
+                  <span class="orgchart-link">Voir le profil <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
+                </div>
+              </div>
+            </div>
+            <div class="orgchart-node orgchart-node--wide" data-person="services" tabindex="0" role="button" aria-label="Découvrir les services et actions du CIAS">
+              <div class="orgchart-node-head">
+                <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-two-rounded-bold" width="22" height="22"></iconify-icon></span>
+                <h4 class="orgchart-node-name">Services &amp; Actions</h4>
+              </div>
+              <div class="orgchart-node-body">
+                <span class="orgchart-illu" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-linear" width="48" height="48"></iconify-icon></span>
+                <div>
+                  <p class="orgchart-node-sub">Équipes et services mobilisés au quotidien pour accompagner les habitants du Sud de Mayotte dans l'accès à leurs droits et à la dignité.</p>
+                  <span class="orgchart-link">Découvrir nos actions <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="org-connector org-connector-v2 reveal"></div>
-          <!-- Niveau 2 : Directeur -->
-          <div class="org-level reveal reveal-delay-2">
-            <div class="org-card org-card-lvl2 org-card-photo" data-person="directeur" tabindex="0" role="button" aria-label="Voir le profil du Directeur">
-              <span class="org-card-rank">N°2</span>
-              <div class="org-card-avatar">
-                <img src="assets/directeur-cias.jpg" alt="Saïd Gaba ABDOU, Directeur du CIAS" loading="lazy" />
-              </div>
-              <div class="org-card-label">Directeur</div>
-              <div class="org-card-role">Saïd Gaba ABDOU</div>
-              <div class="org-card-name">Direction générale</div>
-              <div class="org-card-cta">Voir le profil
-                <iconify-icon icon="solar:arrow-right-bold" width="11" height="11" aria-hidden="true"></iconify-icon>
-              </div>
+
+          <!-- Bandeau territoire -->
+          <div class="orgchart-banner reveal reveal-delay-4">
+            <span class="orgchart-banner-icon" aria-hidden="true"><iconify-icon icon="solar:hand-heart-bold" width="30" height="30"></iconify-icon></span>
+            <div class="orgchart-banner-text">
+              <h4>Une gouvernance au service du territoire</h4>
+              <p>Le CIAS agit avec transparence, proximité et responsabilité pour construire, avec les habitants et les partenaires, un territoire plus solidaire.</p>
             </div>
-          </div>
-          <div class="org-connector org-connector-v2 reveal"></div>
-          <!-- Niveau 3 : Chargée de projets -->
-          <div class="org-level reveal reveal-delay-3">
-            <div class="org-card org-card-lvl3" data-person="charge" tabindex="0" role="button" aria-label="Voir le profil de la Chargée de projets">
-              <span class="org-card-rank">N°3</span>
-              <div class="org-card-avatar">
-                <img src="assets/charge-cias.jpg" alt="Rahima Ali, Chargée de projets du CIAS" loading="lazy" />
-              </div>
-              <div class="org-card-label">Chargée de projets</div>
-              <div class="org-card-role">Rahima Ali</div>
-              <div class="org-card-name">Coordination des actions territoriales</div>
-              <div class="org-card-cta">Voir le profil
-                <iconify-icon icon="solar:arrow-right-bold" width="11" height="11" aria-hidden="true"></iconify-icon>
-              </div>
-            </div>
+            <a href="contact.html" class="btn btn-primary orgchart-banner-btn"><iconify-icon icon="solar:chat-round-dots-bold" width="18" height="18" aria-hidden="true"></iconify-icon> Nous contacter</a>
           </div>
         </div>
       </div>
@@ -160,6 +200,34 @@
       role: 'Coordination des actions territoriales',
       bio: "Rahima Ali assure la coordination des projets et actions du CIAS sur le territoire. Elle veille à l'articulation entre les différents dispositifs, anime les partenariats avec les acteurs locaux et suit l'avancement des 8 projets structurants de l'établissement.",
       img: 'assets/charge-cias.jpg'
+    },
+    vice: {
+      label: 'Vice-présidence',
+      name: 'Vice-présidence du CIAS',
+      role: "Représentation et continuité de l'action",
+      bio: "La Vice-présidence assure la représentation du Président et la continuité des actions du CIAS lorsque celui-ci est empêché. Elle participe activement au pilotage stratégique de l'établissement et au suivi des décisions du Conseil d'Administration.",
+      img: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=300&fit=crop&crop=center'
+    },
+    administrateurs: {
+      label: 'Élus communautaires',
+      name: 'Administrateurs',
+      role: 'Membres élus de la CCSUD',
+      bio: "Les administrateurs sont les membres élus de la Communauté de Communes du Sud de Mayotte. Représentant les communes de Bandrélé, Chirongui, Kani-Kéli et Bouéni, ils siègent au Conseil d'Administration et délibèrent sur les orientations et le budget du CIAS.",
+      img: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&h=300&fit=crop&crop=center'
+    },
+    representants: {
+      label: 'Acteurs du territoire',
+      name: 'Représentants du territoire',
+      role: 'Associations, partenaires et acteurs locaux',
+      bio: "Les représentants du territoire réunissent les associations, partenaires institutionnels et acteurs locaux engagés aux côtés du CIAS. Leur présence garantit l'ancrage de l'établissement dans les réalités de terrain et la prise en compte des besoins des habitants.",
+      img: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&h=300&fit=crop&crop=center'
+    },
+    services: {
+      label: 'Services & Actions',
+      name: 'Services & Actions',
+      role: 'Équipes opérationnelles du CIAS',
+      bio: "Les services et équipes du CIAS sont mobilisés au quotidien pour accompagner les habitants du Sud de Mayotte dans l'accès à leurs droits et à la dignité : santé, logement, insertion, accès aux droits et action sociale de proximité.",
+      img: 'https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=600&h=300&fit=crop&crop=center'
     }
   };
 
@@ -297,7 +365,7 @@
         <div class="footer-brand">
           <img src="assets/logo-cias.png" alt="CIAS" class="footer-logo-img" />
           <div class="footer-logo-main">CIAS</div>
-          <div class="footer-logo-sub">Communauté de Communes du Sud de Mayotte</div>
+          <div class="footer-logo-sub">Centre Intercommunal d'Action Sociale · Sud de Mayotte</div>
           <div class="footer-slogan"><em>Perle de Solidarité</em></div>
           <p>Établissement public administratif au service des habitants de Bandrélé, Chirongui, Kani-Kéli et Bouéni.</p>
         </div>
