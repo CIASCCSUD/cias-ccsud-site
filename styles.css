@@ -769,8 +769,8 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .org-connector-v2::before {
   content: '';
   position: absolute;
-  top: 6px;
-  bottom: 18px;
+  top: 0;
+  bottom: 0;
   left: 50%;
   width: 5px;
   background: var(--c-bleu);
@@ -782,13 +782,14 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 4px;
+  top: 50%;
   width: 18px;
   height: 18px;
   border-right: 5px solid var(--c-bleu);
   border-bottom: 5px solid var(--c-bleu);
-  transform: translateX(-50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
   border-radius: 2px;
+  background: var(--c-bg);
   filter: drop-shadow(0 3px 5px rgba(58,125,92,0.30));
 }
 @media (max-width: 640px) {
@@ -1060,7 +1061,7 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .float-contact {
   position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 980;
   background: var(--c-bleu); color: white !important;
-  display: flex; align-items: center; gap: 0.45rem;
+  display: none; align-items: center; gap: 0.45rem;
   padding: 0.7rem 1.2rem; border-radius: 100px;
   font-size: 0.8rem; font-weight: 700; letter-spacing: 0.01em;
   text-decoration: none;
@@ -1069,7 +1070,8 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 }
 .float-contact:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(58,125,92,0.55); }
 .float-contact svg { flex-shrink: 0; }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .float-contact { display: flex; }
   .float-contact span.float-label { display: none; }
   .float-contact { padding: 0.75rem; border-radius: 50%; }
 }
@@ -2511,22 +2513,39 @@ html { scroll-behavior: smooth; }
 .section-stats-light .stats-strip { border-top: 2px solid var(--c-border); border-bottom: 2px solid var(--c-border); }
 .section-stats-light .stat-item { border-right-color: var(--c-border); }
 
-/* ── Bouton flottant "Nous contacter" · toujours rectangulaire ── */
-.float-contact {
-  border-radius: 6px !important;
-}
-@media (max-width: 640px) {
-  .float-contact { padding: 0.7rem 1.2rem !important; border-radius: 6px !important; }
-  .float-contact span.float-label { display: inline !important; }
-}
+/* ── Bouton flottant "Nous contacter" · mobile uniquement ── */
 
 /* ── Membres · grille 4 colonnes uniformes sur desktop ── */
 @media (min-width: 900px) {
-  .membres-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 1.25rem; }
-  .membres-grid .membre-card { min-height: 0; }
+  .membres-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 1.5rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .membres-grid-clickable .membre-card { display: flex; flex-direction: column; min-height: 420px; }
+  .membres-grid-clickable .membre-card .membre-info { flex: 1; }
+  .membres-grid-clickable .membre-card .membre-card-hint { margin-top: auto; padding-top: 0.85rem; }
 }
 @media (max-width: 900px) {
   .membres-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .membres-grid {
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+  }
+  .membres-grid::-webkit-scrollbar { display: none; }
+  .membres-grid .membre-card {
+    flex: 0 0 78vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+  }
+  .membres-grid .membre-card .membre-info { flex: 1; }
+  .membres-grid .membre-card .membre-card-hint { margin-top: auto; padding-top: 0.85rem; }
 }
 
 /* ── Organigramme : layout horizontal sur desktop ── */
