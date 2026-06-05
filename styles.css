@@ -2682,6 +2682,10 @@ html { scroll-behavior: smooth; }
 .orgchart-row { display: grid; gap: 1.5rem; }
 .orgchart-row--4 { grid-template-columns: repeat(4, 1fr); }
 .orgchart-row--2 { grid-template-columns: 1fr 1fr; }
+.orgchart-row--1 { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+
+/* Cartes affichées seulement sur mobile (organigramme simplifié à 3 cartes) */
+.org-only-mobile { display: none; }
 
 /* Cartes / nœuds */
 .orgchart-node {
@@ -2802,9 +2806,13 @@ html { scroll-behavior: smooth; }
   .orgchart-banner-text { text-align: center; }
 }
 
-/* ── Mobile (≤600px) : design « d'avant » = pile en 1 colonne, alignée à gauche ── */
+/* ── Mobile (≤600px) : design « d'avant » = 3 cartes (Président, Direction, Chargée) ── */
 @media (max-width: 600px) {
   .orgchart { max-width: 460px; }
+  /* on ne garde que les 3 cartes d'origine */
+  .org-hide-mobile { display: none !important; }
+  .org-only-mobile { display: block; }
+  .orgchart-row--1 { max-width: none; }
   .orgchart-row--4, .orgchart-row--2 { grid-template-columns: 1fr; gap: 1rem; }
   /* on masque les connecteurs horizontaux, on garde le tronc vertical façon liste */
   .orgchart-row--4::before, .orgchart-row--2::before,
@@ -2813,9 +2821,10 @@ html { scroll-behavior: smooth; }
   .orgchart-node--ca { max-width: none; }
   .orgchart-trunk, .orgchart-trunk--mid { height: 26px; }
   /* cartes alignées à gauche comme l'ancienne version */
-  .orgchart-row--4 .orgchart-node, .orgchart-row--2 .orgchart-node { text-align: left; align-items: stretch; }
-  .orgchart-row--4 .orgchart-icon, .orgchart-row--4 .orgchart-avatar, .orgchart-row--4 .orgchart-illu { margin-left: 0; margin-right: 0; }
-  .orgchart-row--4 .orgchart-node-name { height: auto; align-items: flex-start; }
+  .orgchart-row--4 .orgchart-node, .orgchart-row--2 .orgchart-node, .orgchart-row--1 .orgchart-node { text-align: left; align-items: stretch; }
+  .orgchart-row--4 .orgchart-icon, .orgchart-row--4 .orgchart-avatar, .orgchart-row--4 .orgchart-illu,
+  .orgchart-row--1 .orgchart-icon, .orgchart-row--1 .orgchart-avatar { margin-left: 0; margin-right: 0; }
+  .orgchart-row--4 .orgchart-node-name, .orgchart-row--1 .orgchart-node-name { height: auto; align-items: flex-start; }
   .orgchart-node--wide .orgchart-node-body { flex-direction: column; align-items: flex-start; text-align: left; }
   .orgchart-link { align-self: flex-start; }
   .orgchart-banner { flex-direction: column; text-align: center; }

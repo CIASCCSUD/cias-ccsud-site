@@ -64,7 +64,7 @@
         </div>
         <div class="orgchart">
           <!-- Niveau 1 : Conseil d'Administration -->
-          <div class="orgchart-top reveal reveal-delay-1">
+          <div class="orgchart-top org-hide-mobile reveal reveal-delay-1">
             <div class="orgchart-node orgchart-node--ca" data-person="ca" tabindex="0" role="button" aria-label="Voir le détail du Conseil d'Administration">
               <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-two-rounded-bold" width="28" height="28"></iconify-icon></span>
               <h3 class="orgchart-node-title">Conseil d'Administration</h3>
@@ -73,7 +73,7 @@
             </div>
           </div>
 
-          <div class="orgchart-trunk" aria-hidden="true"></div>
+          <div class="orgchart-trunk org-hide-mobile" aria-hidden="true"></div>
 
           <!-- Niveau 2 : 4 composantes -->
           <div class="orgchart-row orgchart-row--4 reveal reveal-delay-2">
@@ -85,21 +85,21 @@
               <p class="orgchart-node-sub">Président de la CCSUD</p>
               <span class="orgchart-link">Voir le profil <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
             </div>
-            <div class="orgchart-node" data-person="vice" tabindex="0" role="button" aria-label="En savoir plus sur la Vice-présidence">
+            <div class="orgchart-node org-hide-mobile" data-person="vice" tabindex="0" role="button" aria-label="En savoir plus sur la Vice-présidence">
               <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-bold" width="22" height="22"></iconify-icon></span>
               <h4 class="orgchart-node-name">Vice-présidence</h4>
               <span class="orgchart-illu" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-linear" width="48" height="48"></iconify-icon></span>
               <p class="orgchart-node-sub">Assure la représentation du Président et la continuité des actions du CIAS.</p>
               <span class="orgchart-link">En savoir plus <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
             </div>
-            <div class="orgchart-node" data-person="administrateurs" tabindex="0" role="button" aria-label="Voir la liste des administrateurs">
+            <div class="orgchart-node org-hide-mobile" data-person="administrateurs" tabindex="0" role="button" aria-label="Voir la liste des administrateurs">
               <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-bold" width="22" height="22"></iconify-icon></span>
               <h4 class="orgchart-node-name">Administrateurs<span class="orgchart-node-name-sub">élus communautaires</span></h4>
               <span class="orgchart-illu" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-linear" width="48" height="48"></iconify-icon></span>
               <p class="orgchart-node-sub">Membres élus de la Communauté de Communes du Sud de Mayotte.</p>
               <span class="orgchart-link">Voir la liste <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
             </div>
-            <div class="orgchart-node" data-person="representants" tabindex="0" role="button" aria-label="Voir la liste des représentants du territoire">
+            <div class="orgchart-node org-hide-mobile" data-person="representants" tabindex="0" role="button" aria-label="Voir la liste des représentants du territoire">
               <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:hand-heart-bold" width="22" height="22"></iconify-icon></span>
               <h4 class="orgchart-node-name">Représentants du territoire</h4>
               <span class="orgchart-illu" aria-hidden="true"><iconify-icon icon="solar:users-group-rounded-linear" width="48" height="48"></iconify-icon></span>
@@ -126,7 +126,7 @@
                 </div>
               </div>
             </div>
-            <div class="orgchart-node orgchart-node--wide" data-person="services" tabindex="0" role="button" aria-label="Découvrir les services et actions du CIAS">
+            <div class="orgchart-node orgchart-node--wide org-hide-mobile" data-person="services" tabindex="0" role="button" aria-label="Découvrir les services et actions du CIAS">
               <div class="orgchart-node-head">
                 <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:users-group-two-rounded-bold" width="22" height="22"></iconify-icon></span>
                 <h4 class="orgchart-node-name">Services &amp; Actions</h4>
@@ -141,8 +141,21 @@
             </div>
           </div>
 
+          <!-- Chargée de projets : visible uniquement sur mobile (design d'origine) -->
+          <div class="orgchart-trunk org-only-mobile" aria-hidden="true"></div>
+          <div class="orgchart-row orgchart-row--1 org-only-mobile reveal reveal-delay-3">
+            <div class="orgchart-node orgchart-node--photo" data-person="charge" tabindex="0" role="button" aria-label="Voir le profil de la Chargée de projets">
+              <span class="orgchart-icon" aria-hidden="true"><iconify-icon icon="solar:clipboard-list-bold" width="22" height="22"></iconify-icon></span>
+              <h4 class="orgchart-node-name">Chargée de projets</h4>
+              <div class="orgchart-avatar"><img src="assets/charge-cias.jpg" alt="Rahima Ali, Chargée de projets du CIAS" loading="lazy" /></div>
+              <p class="orgchart-node-person">Rahima Ali</p>
+              <p class="orgchart-node-sub">Coordination des actions territoriales</p>
+              <span class="orgchart-link">Voir le profil <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" aria-hidden="true"></iconify-icon></span>
+            </div>
+          </div>
+
           <!-- Bandeau territoire -->
-          <div class="orgchart-banner reveal reveal-delay-4">
+          <div class="orgchart-banner org-hide-mobile reveal reveal-delay-4">
             <span class="orgchart-banner-icon" aria-hidden="true"><iconify-icon icon="solar:hand-heart-bold" width="30" height="30"></iconify-icon></span>
             <div class="orgchart-banner-text">
               <h4>Une gouvernance au service du territoire</h4>
