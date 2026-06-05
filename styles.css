@@ -2742,6 +2742,12 @@ html { scroll-behavior: smooth; }
 .orgchart-node-sub { font-size: .85rem; color: var(--c-text-muted); line-height: 1.55; margin: 0 0 .9rem; }
 .orgchart-node-sub--strong { color: var(--c-bleu); font-weight: 600; margin-bottom: .35rem; }
 
+/* Cartes avec photo : tout centré, contenu centré verticalement, pas d'icône */
+.orgchart-node--photo { justify-content: center; text-align: center; }
+.orgchart-node--photo .orgchart-node-name { margin-bottom: 1rem; }
+.orgchart-node--photo .orgchart-node-person { margin-bottom: .9rem; }
+.orgchart-node--photo .orgchart-link { margin-top: 0; align-self: center; }
+
 .orgchart-link {
   margin-top: auto; display: inline-flex; align-items: center; gap: .3rem;
   color: var(--c-bleu); font-size: .85rem; font-weight: 600;
@@ -2825,7 +2831,8 @@ html { scroll-behavior: smooth; }
   .orgchart-row--1 .orgchart-icon, .orgchart-row--1 .orgchart-avatar { margin-left: 0; margin-right: 0; }
   .orgchart-row--4 .orgchart-node-name, .orgchart-row--1 .orgchart-node-name { height: auto; align-items: flex-start; }
   .orgchart-node--wide .orgchart-node-body { flex-direction: column; align-items: flex-start; text-align: left; }
-  .orgchart-link { align-self: flex-start; }
+  .orgchart-link, .orgchart-node--photo .orgchart-link { align-self: flex-start; }
+  .orgchart-node--photo { text-align: left; }
   .orgchart-banner { flex-direction: column; text-align: center; }
   .orgchart-banner-text { text-align: center; }
 }
