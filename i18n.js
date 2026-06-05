@@ -27,7 +27,7 @@
 
       // ── Bandeau horaires ──────────────────────────────────────────
       'horaires.label':    "Horaires d'accueil :",
-      'horaires.schedule': 'Lundi – Vendredi · 7h30–12h00 & 13h30–16h30',
+      'horaires.schedule': '<span class="nowrap">Lundi – Vendredi</span> · <span class="nowrap">7h30–12h00 &amp; 13h30–16h30</span>',
 
       // ── Hero (index) ──────────────────────────────────────────────
       'hero.badge':        'Établissement public · CCSUD Mayotte',
@@ -171,7 +171,7 @@
 
       // ── Bandeau horaires ──────────────────────────────────────────
       'horaires.label':    'Masaa ya mapokezi :',
-      'horaires.schedule': 'Jumatatu – Ijumaa · 7h30–12h00 & 13h30–16h30',
+      'horaires.schedule': '<span class="nowrap">Jumatatu – Ijumaa</span> · <span class="nowrap">7h30–12h00 &amp; 13h30–16h30</span>',
 
       // ── Hero (index) ──────────────────────────────────────────────
       'hero.badge':        'Ofisi ya umma · CCSUD Mayotte',

@@ -311,33 +311,21 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .quick-access {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--c-border);
-  border-left: 1px solid var(--c-border);
-  border-radius: 2px; /* quasi-carré : sérieux institutionnel */
-  overflow: hidden;
+  gap: 1.25rem;
 }
 .quick-card {
   position: relative;
   display: block;
   padding: 1.5rem 2rem 1.5rem 1.5rem;
-  background: transparent;
-  border-right: 1px solid var(--c-border);
-  border-bottom: 1px solid var(--c-border);
+  background: #fff;
+  border: 1.5px solid var(--c-bleu);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(58,125,92,0.10);
   text-decoration: none;
-  transition: background 0.18s;
+  transition: background 0.18s, box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
 }
-.quick-card:hover { background: var(--c-vert-light); }
-/* Barre basse qui se déploie horizontalement au survol */
-.quick-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0; height: 2px;
-  background: var(--c-bleu);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.22s cubic-bezier(0.4,0,0.2,1);
-}
-.quick-card:hover::after { transform: scaleX(1); }
+.quick-card:hover { background: var(--c-vert-light); box-shadow: 0 14px 32px rgba(58,125,92,0.20); transform: translateY(-3px); }
+/* (barre basse retirée : le contour vert complet la remplace) */
 /* Numéro : petit label monospaced en accent */
 .quick-card-num {
   display: block;
@@ -386,12 +374,11 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 @media (max-width: 480px) {
   .quick-access {
     grid-template-columns: 1fr 1fr;
-    border-radius: 2px;
+    gap: 0.85rem;
   }
   .quick-card {
     padding: 0.875rem 1rem;
     min-height: 80px;
-    overflow: hidden;
     display: flex;
     align-items: center;
     gap: 0.85rem;
@@ -592,11 +579,18 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
   background: rgba(255,255,255,0.25);
   margin: 0 0 1.25rem;
 }
-.quote-author span {
+/* Rôle au-dessus (translucide, en capitales) + nom en dessous (blanc plein, visible) */
+.quote-author .quote-role {
   display: block;
   color: rgba(255,255,255,0.75);
-  font-size: 0.7rem; font-weight: 400;
-  margin-top: 0.25rem;
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+}
+.quote-author .quote-name {
+  display: block;
+  margin-top: 0.35rem;
+  color: #ffffff;
+  font-size: 1.05rem; font-weight: 800;
   text-transform: none; letter-spacing: 0;
 }
 
@@ -1082,6 +1076,7 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
 }
 .horaires-strip strong { font-weight: 800; }
+.horaires-strip .nowrap { white-space: nowrap; }
 @media (max-width: 768px) {
   /* Mobile : revient dans le flux normal sous la photo */
   .horaires-strip { position: static; }
