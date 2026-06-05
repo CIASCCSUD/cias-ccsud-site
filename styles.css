@@ -2788,12 +2788,11 @@ html { scroll-behavior: smooth; }
 .orgchart-banner-text p { font-size: .9rem; color: var(--c-text-muted); line-height: 1.6; margin: 0; }
 .orgchart-banner-btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: .45rem; }
 
-/* ── Tablette : 4 colonnes -> 2x2, cartes larges -> empilées ── */
-@media (max-width: 860px) {
+/* ── Tablette (601–860px) : 4 colonnes -> 2x2, cartes larges -> empilées ── */
+@media (min-width: 601px) and (max-width: 860px) {
   .orgchart { max-width: 540px; }
   .orgchart-row--4 { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .orgchart-row--2 { grid-template-columns: 1fr; gap: 1rem; }
-  /* connecteurs : on garde une descente centrale propre */
   .orgchart-row--4::before { left: 25%; right: 25%; }
   .orgchart-row--2::before { display: none; }
   .orgchart-row--2 > .orgchart-node::before { display: none; }
@@ -2803,11 +2802,22 @@ html { scroll-behavior: smooth; }
   .orgchart-banner-text { text-align: center; }
 }
 
-/* ── Mobile étroit : 4 colonnes restent en 2x2 compactes ── */
-@media (max-width: 480px) {
-  .orgchart-row--4 { gap: .75rem; }
-  .orgchart-row--4 .orgchart-node { padding: 1.25rem .9rem; }
-  .orgchart-row--4 .orgchart-node-name { min-height: 2.6em; font-size: .92rem; }
-  .orgchart-avatar, .orgchart-illu { width: 76px; height: 76px; }
+/* ── Mobile (≤600px) : design « d'avant » = pile en 1 colonne, alignée à gauche ── */
+@media (max-width: 600px) {
+  .orgchart { max-width: 460px; }
+  .orgchart-row--4, .orgchart-row--2 { grid-template-columns: 1fr; gap: 1rem; }
+  /* on masque les connecteurs horizontaux, on garde le tronc vertical façon liste */
+  .orgchart-row--4::before, .orgchart-row--2::before,
+  .orgchart-row--4 > .orgchart-node::before,
+  .orgchart-row--2 > .orgchart-node::before { display: none; }
+  .orgchart-node--ca { max-width: none; }
+  .orgchart-trunk, .orgchart-trunk--mid { height: 26px; }
+  /* cartes alignées à gauche comme l'ancienne version */
+  .orgchart-row--4 .orgchart-node, .orgchart-row--2 .orgchart-node { text-align: left; align-items: stretch; }
+  .orgchart-row--4 .orgchart-icon, .orgchart-row--4 .orgchart-avatar, .orgchart-row--4 .orgchart-illu { margin-left: 0; margin-right: 0; }
+  .orgchart-row--4 .orgchart-node-name { height: auto; align-items: flex-start; }
   .orgchart-node--wide .orgchart-node-body { flex-direction: column; align-items: flex-start; text-align: left; }
+  .orgchart-link { align-self: flex-start; }
+  .orgchart-banner { flex-direction: column; text-align: center; }
+  .orgchart-banner-text { text-align: center; }
 }
