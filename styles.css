@@ -996,6 +996,14 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .footer-brand .footer-logo-main { font-size: 1.2rem; font-weight: 800; color: var(--c-text); letter-spacing: 0.04em; }
 .footer-brand .footer-logo-sub { font-size: 0.52rem; color: var(--c-bleu); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .footer-brand p { font-size: 0.78rem; color: var(--c-text-light); margin-top: 0.5rem; max-width: 240px; line-height: 1.5; }
+.footer-social { display: flex; gap: 0.6rem; margin-top: 1rem; }
+.footer-social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--c-bleu); color: #fff;
+  transition: transform 0.2s var(--ease), background 0.2s;
+}
+.footer-social-link:hover { background: var(--c-bleu-hover); transform: translateY(-2px); }
 .footer-col h4 { color: var(--c-text); font-size: 0.78rem; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.25rem; }
 .footer-col ul a { font-size: 0.78rem; color: var(--c-text-light); transition: color 0.15s; }
