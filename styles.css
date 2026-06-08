@@ -2341,6 +2341,7 @@ body.lang-shi .shi-notice { display: block; }
 .projets-intro-stat-num { font-size: 2.4rem; font-weight: 800; color: var(--c-bleu); line-height: 1; letter-spacing: -0.02em; }
 .projets-intro-stat-label { font-size: 0.7rem; color: var(--c-text-light); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.35rem; }
 @media (max-width: 768px) {
+  .projets-intro { padding-top: calc(var(--nav-h) + 4px + 1.5rem); }
   .projets-intro-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .projets-intro-stats { flex-wrap: wrap; gap: 1.5rem; }
   .projets-intro-stat-num { font-size: 1.9rem; }
@@ -2517,7 +2518,7 @@ html { scroll-behavior: smooth; }
 
 /* ── Membres · grille 4 colonnes uniformes sur desktop ── */
 @media (min-width: 900px) {
-  .membres-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 2rem; max-width: 1480px; margin-left: auto; margin-right: auto; }
+  .membres-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 2.25rem; width: min(1760px, 95vw); max-width: 95vw; position: relative; left: 50%; transform: translateX(-50%); margin-left: 0; margin-right: 0; }
   .membres-grid-clickable .membre-card { display: flex; flex-direction: column; min-height: 540px; padding: 2rem; }
   .membres-grid-clickable .membre-card .img-card { height: 300px; margin: -2rem -2rem 1.5rem; width: calc(100% + 4rem + 2px); }
   .membres-grid-clickable .membre-card .membre-info { flex: 1; }
