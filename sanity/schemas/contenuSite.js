@@ -8,6 +8,22 @@ export default {
   // Singleton : un seul document de ce type
   __experimental_actions: ['update', 'publish'],
   fields: [
+    // ── Visibilité des pages ──
+    {
+      name: 'visibilitePages',
+      title: 'Visibilité des pages',
+      description: 'Décochez une page pour la retirer du menu de navigation (en-tête et pied de page). La page reste accessible par son adresse directe. Les pages Accueil et Contact restent toujours visibles.',
+      type: 'object',
+      options: { collapsible: true, collapsed: false },
+      fields: [
+        { name: 'leCias', title: 'Le CIAS', type: 'boolean', initialValue: true },
+        { name: 'gouvernance', title: 'Gouvernance', type: 'boolean', initialValue: true },
+        { name: 'deliberations', title: 'Délibérations', type: 'boolean', initialValue: true },
+        { name: 'nosProjets', title: 'Nos projets', type: 'boolean', initialValue: true },
+        { name: 'actualites', title: 'Actualités', type: 'boolean', initialValue: true },
+        { name: 'lesCommunes', title: 'Les communes', type: 'boolean', initialValue: true },
+      ],
+    },
     // ── Page d'accueil ──
     {
       name: 'hero',
