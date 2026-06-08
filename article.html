@@ -88,33 +88,33 @@
   <div class="tricolore" aria-hidden="true"><span class="bleu"></span><span class="blanc"></span><span class="rouge"></span></div>
   <nav class="navbar" id="navbar" aria-label="Navigation principale">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="CIAS de la CCSUD · Accueil">
+      <a href="/accueil" class="nav-logo" aria-label="CIAS de la CCSUD · Accueil">
         <img src="assets/logo-cias.png" alt="CIAS de la CCSUD" class="nav-logo-img" height="44" />
       </a>
       <div class="nav-links" role="menubar">
-        <a href="index.html" role="menuitem">Accueil</a>
-        <a href="a-propos.html" role="menuitem">Le CIAS</a>
-        <a href="gouvernance.html" role="menuitem">Gouvernance</a>
-        <a href="deliberations.html" role="menuitem">Délibérations</a>
+        <a href="/accueil" role="menuitem">Accueil</a>
+        <a href="/le-cias" role="menuitem">Le CIAS</a>
+        <a href="/gouvernance" role="menuitem">Gouvernance</a>
+        <a href="/deliberations" role="menuitem">Délibérations</a>
         
-        <a href="projets.html" role="menuitem">Nos projets</a>
-        <a href="actualites.html" role="menuitem" class="active">Actualités</a>
-        <a href="membres.html" role="menuitem">Les communes</a>
-        <a href="contact.html" class="nav-cta" role="menuitem">Contact</a>
+        <a href="/nos-projets" role="menuitem">Nos projets</a>
+        <a href="/actualites" role="menuitem" class="active">Actualités</a>
+        <a href="/les-communes" role="menuitem">Les communes</a>
+        <a href="/contact" class="nav-cta" role="menuitem">Contact</a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="nav-mobile" id="mobile-menu" role="menu" aria-label="Menu mobile">
-    <a href="index.html" role="menuitem">Accueil</a>
-    <a href="a-propos.html" role="menuitem">Le CIAS</a>
-    <a href="gouvernance.html" role="menuitem">Gouvernance</a>
-        <a href="deliberations.html" role="menuitem">Délibérations</a>
+    <a href="/accueil" role="menuitem">Accueil</a>
+    <a href="/le-cias" role="menuitem">Le CIAS</a>
+    <a href="/gouvernance" role="menuitem">Gouvernance</a>
+        <a href="/deliberations" role="menuitem">Délibérations</a>
         
-    <a href="projets.html" role="menuitem">Nos projets</a>
-    <a href="actualites.html" role="menuitem">Actualités</a>
-    <a href="membres.html" role="menuitem">Les communes</a>
-    <a href="contact.html" class="nav-cta" role="menuitem">Contact</a>
+    <a href="/nos-projets" role="menuitem">Nos projets</a>
+    <a href="/actualites" role="menuitem">Actualités</a>
+    <a href="/les-communes" role="menuitem">Les communes</a>
+    <a href="/contact" class="nav-cta" role="menuitem">Contact</a>
   </div>
 
   <main id="main">
@@ -152,15 +152,15 @@
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="a-propos.html">Le CIAS</a></li>
-            <li><a href="gouvernance.html">Gouvernance</a></li>
-            <li><a href="deliberations.html">Délibérations</a></li>
+            <li><a href="/accueil">Accueil</a></li>
+            <li><a href="/le-cias">Le CIAS</a></li>
+            <li><a href="/gouvernance">Gouvernance</a></li>
+            <li><a href="/deliberations">Délibérations</a></li>
             
-            <li><a href="projets.html">Nos projets</a></li>
-            <li><a href="actualites.html">Actualités</a></li>
-            <li><a href="membres.html">Les communes</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/nos-projets">Nos projets</a></li>
+            <li><a href="/actualites">Actualités</a></li>
+            <li><a href="/les-communes">Les communes</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -168,15 +168,15 @@
           <ul>
             <li><a href="mailto:cias.ccsud@ccsud.yt">cias.ccsud@ccsud.yt</a></li>
             <li><a href="tel:+33619007814">06 39 007 814</a></li>
-            <li><a href="contact.html">Formulaire de contact</a></li>
+            <li><a href="/contact">Formulaire de contact</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 CIAS de la CCSUD · Tous droits réservés</span>
         <div style="display:flex; gap: 1.5rem;">
-          <a href="mentions-legales.html">Mentions légales</a>
-          <a href="accessibilite.html">Accessibilité</a>
+          <a href="/mentions-legales">Mentions légales</a>
+          <a href="/accessibilite">Accessibilité</a>
         </div>
       </div>
     </div>
@@ -237,7 +237,7 @@
       });
 
       document.getElementById('article-content').innerHTML =
-        '<a href="actualites.html" class="article-back">' +
+        '<a href="/actualites" class="article-back">' +
         '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
         ' Retour aux actualités</a>' +
         '<div class="article-meta">' +
@@ -249,13 +249,13 @@
         '<div class="article-body">' + bodyHtml + '</div>' +
         '<div class="article-cta">' +
         '<p>Une question sur cette actualité ?</p>' +
-        '<a href="contact.html" class="btn btn-primary" style="font-size:0.82rem;padding:0.55rem 1.25rem;">Contacter le CIAS</a>' +
+        '<a href="/contact" class="btn btn-primary" style="font-size:0.82rem;padding:0.55rem 1.25rem;">Contacter le CIAS</a>' +
         '</div>';
     }
 
     function renderNotFound() {
       document.getElementById('article-content').innerHTML =
-        '<a href="actualites.html" class="article-back">' +
+        '<a href="/actualites" class="article-back">' +
         '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
         ' Retour aux actualités</a>' +
         '<div class="article-not-found">' +

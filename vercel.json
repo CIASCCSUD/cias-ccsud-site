@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/accueil", "permanent": false },
+    { "source": "/index", "destination": "/accueil", "permanent": true },
+    { "source": "/a-propos", "destination": "/le-cias", "permanent": true },
+    { "source": "/projets", "destination": "/nos-projets", "permanent": true },
+    { "source": "/membres", "destination": "/les-communes", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/accueil", "destination": "/index.html" },
+    { "source": "/le-cias", "destination": "/a-propos.html" },
+    { "source": "/nos-projets", "destination": "/projets.html" },
+    { "source": "/les-communes", "destination": "/membres.html" }
+  ]
+}
