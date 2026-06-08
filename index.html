@@ -280,40 +280,25 @@
 
   <script src="main.js"></script>
 
-  <!-- Chargeur de contenu admin · page d'accueil -->
+  <!-- Chargeur de contenu éditable · page d'accueil (Sanity, sinon textes par défaut) -->
+  <script src="sanity-client.js"></script>
   <script>
   (function() {
-    try {
-      var data = JSON.parse(localStorage.getItem('cias-homepage'));
-      if (!data) return;
-      // Hero titre
-      if (data['hero.title']) {
-        var t = document.querySelector('.hero-title');
-        if (t) t.innerHTML = data['hero.title'];
+    function setText(sel, val) { if (!val) return; var el = document.querySelector(sel); if (el) el.textContent = val; }
+    var groq = '*[_type=="contenuSite"][0]{hero,mission,citation}';
+    CIASSanity.query(groq).then(function (c) {
+      if (!c) return; // garde les textes par défaut de la page
+      if (c.hero) {
+        if (c.hero.titre) { var t = document.querySelector('.hero-title'); if (t) t.textContent = c.hero.titre; }
+        setText('.hero-subtitle', c.hero.sousTitre);
       }
-      // Hero sous-titre
-      if (data['hero.subtitle']) {
-        var s = document.querySelector('.hero-subtitle');
-        if (s) s.textContent = data['hero.subtitle'];
+      if (c.mission) setText('[data-i18n="mission.text"]', c.mission.texte);
+      if (c.citation) {
+        setText('.quote-text', c.citation.texte);
+        setText('.quote-name', c.citation.auteur);
+        setText('.quote-role', c.citation.fonction);
       }
-      // Mission
-      if (data['mission.text']) {
-        var m = document.querySelector('[data-i18n="mission.text"]');
-        if (m) m.textContent = data['mission.text'];
-      }
-      // Citation texte
-      if (data['quote.text']) {
-        var q = document.querySelector('.quote-text');
-        if (q) q.textContent = data['quote.text'];
-      }
-      // Citation auteur + fonction
-      var qa = document.querySelector('.quote-author');
-      if (qa) {
-        var span = qa.querySelector('span');
-        if (data['quote.author']) qa.childNodes[0].textContent = data['quote.author'];
-        if (span && data['quote.fonction']) span.textContent = data['quote.fonction'];
-      }
-    } catch(e) {}
+    }).catch(function (e) { console.error('Sanity contenu accueil:', e); });
   })();
   </script>
 

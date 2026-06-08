@@ -124,19 +124,19 @@
               </div>
               <div class="contact-item reveal reveal-delay-2">
                 <div class="contact-item-icon"><iconify-icon icon="solar:map-point-bold" width="20" height="20" style="color:#000091;" aria-hidden="true"></iconify-icon></div>
-                <div class="contact-item-content"><label>Bureau</label><p>Ruelle Baitissalam, Nyambadao<br>97660 Bandrélé, Mayotte</p></div>
+                <div class="contact-item-content"><label>Bureau</label><p id="ct-adresse-bureau">Ruelle Baitissalam, Nyambadao<br>97660 Bandrélé, Mayotte</p></div>
               </div>
               <div class="contact-item reveal reveal-delay-3">
                 <div class="contact-item-icon"><iconify-icon icon="solar:phone-calling-bold" width="20" height="20" style="color:#6B3A2A;" aria-hidden="true"></iconify-icon></div>
-                <div class="contact-item-content"><label>Téléphone</label><p><a href="tel:+33619007814">06 39 007 814</a></p></div>
+                <div class="contact-item-content"><label>Téléphone</label><p><a id="ct-tel" href="tel:+33619007814">06 39 007 814</a></p></div>
               </div>
               <div class="contact-item reveal reveal-delay-4">
                 <div class="contact-item-icon"><iconify-icon icon="solar:letter-bold" width="20" height="20" style="color:#000091;" aria-hidden="true"></iconify-icon></div>
-                <div class="contact-item-content"><label>Courriel</label><p><a href="mailto:cias.ccsud@ccsud.yt">cias.ccsud@ccsud.yt</a></p></div>
+                <div class="contact-item-content"><label>Courriel</label><p><a id="ct-email" href="mailto:cias.ccsud@ccsud.yt">cias.ccsud@ccsud.yt</a></p></div>
               </div>
             </div>
             <div class="gov-info-box reveal" style="margin-top:2rem;">
-              <p><strong>Horaires d'ouverture :</strong> Du lundi au vendredi, de 7h30 à 12h00 et de 13h30 à 16h30. Fermé les jours fériés.</p>
+              <p><strong>Horaires d'ouverture :</strong> <span id="ct-horaires">Du lundi au vendredi, de 7h30 à 12h00 et de 13h30 à 16h30. Fermé les jours fériés.</span></p>
             </div>
           </div>
         </div>
@@ -209,6 +209,32 @@
     </div>
   </footer>
 
+  <script src="sanity-client.js"></script>
+  <script>
+  /* Coordonnées éditables depuis Sanity (sinon valeurs par défaut de la page). */
+  (function () {
+    CIASSanity.query('*[_type=="contenuSite"][0]{contact}').then(function (c) {
+      if (!c || !c.contact) return;
+      var ct = c.contact;
+      if (ct.telephone) {
+        var tel = document.getElementById('ct-tel');
+        if (tel) { tel.textContent = ct.telephone; tel.href = 'tel:' + ct.telephone.replace(/\s+/g, ''); }
+      }
+      if (ct.email) {
+        var em = document.getElementById('ct-email');
+        if (em) { em.textContent = ct.email; em.href = 'mailto:' + ct.email; }
+      }
+      if (ct.adresseBureau) {
+        var ad = document.getElementById('ct-adresse-bureau');
+        if (ad) ad.innerHTML = CIASSanity.esc(ct.adresseBureau).replace(/\n/g, '<br>');
+      }
+      if (ct.horaires) {
+        var ho = document.getElementById('ct-horaires');
+        if (ho) ho.textContent = ct.horaires;
+      }
+    }).catch(function (e) { console.error('Sanity contact:', e); });
+  })();
+  </script>
   <script src="main.js"></script>
 </body>
 </html>

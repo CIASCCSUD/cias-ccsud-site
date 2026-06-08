@@ -417,9 +417,13 @@
         '<div class="projet-drawer-fact"><span class="projet-drawer-fact-label">Public</span><span class="projet-drawer-fact-value">' + p.public + '</span></div>' +
         '<div class="projet-drawer-fact"><span class="projet-drawer-fact-label">Budget</span><span class="projet-drawer-fact-value">' + p.budget + '</span></div>';
       var tl = document.getElementById('projet-drawer-timeline');
-      tl.innerHTML = p.timeline.map(function(t){ return '<li>' + t + '</li>'; }).join('');
+      var tlArr = p.timeline || [];
+      tl.innerHTML = tlArr.map(function(t){ return '<li>' + t + '</li>'; }).join('');
+      tl.closest('.projet-drawer-section').style.display = tlArr.length ? '' : 'none';
       var pt = document.getElementById('projet-drawer-partners');
-      pt.innerHTML = p.partners.map(function(t){ return '<li>' + t + '</li>'; }).join('');
+      var ptArr = p.partners || [];
+      pt.innerHTML = ptArr.map(function(t){ return '<li>' + t + '</li>'; }).join('');
+      pt.closest('.projet-drawer-section').style.display = ptArr.length ? '' : 'none';
       drawer.classList.add('open');
       overlay.classList.add('open');
       drawer.setAttribute('aria-hidden', 'false');
@@ -518,6 +522,93 @@
     <iconify-icon icon="solar:chat-round-call-bold" width="16" height="16" style="color:white;"></iconify-icon>
     <span class="float-label">Nous contacter</span>
   </a>
+  <script src="sanity-client.js"></script>
+  <script>
+  /* Si des projets sont publiés dans Sanity, ils remplacent les projets
+     codés en dur. Sinon (Sanity vide ou hors-ligne), on garde les projets
+     par défaut déjà présents dans la page. */
+  (function () {
+    var STATUS_MAP = {
+      encours: { label: 'En cours', cls: 'status-encours' },
+      planifie: { label: 'Planifié', cls: 'status-planifie' },
+      etude: { label: "À l'étude", cls: 'status-etude' },
+      termine: { label: 'Terminé', cls: 'status-termine' },
+      archive: { label: 'Archivé', cls: 'status-archive' }
+    };
+    function esc(s) { return CIASSanity.esc(s); }
+    function portableTextToPlain(blocks) {
+      if (!Array.isArray(blocks)) return '';
+      return blocks.filter(function (b) { return b._type === 'block' && b.children; })
+        .map(function (b) { return b.children.map(function (c) { return c.text || ''; }).join(''); })
+        .join('\n\n');
+    }
+
+    function buildCard(p, i, key) {
+      var st = STATUS_MAP[p.statut] || { label: p.statut || '', cls: 'status-encours' };
+      var img = p.image ? CIASSanity.imageUrl(p.image, { w: 700, h: 460 }) : 'assets/projet-01.jpg';
+      var num = 'Projet ' + (i + 1 < 10 ? '0' + (i + 1) : (i + 1));
+      return '<article class="projet-card-v2 reveal reveal-delay-' + (((i) % 8) + 1) + '" data-projet="' + esc(key) + '" tabindex="0" role="button" aria-label="En savoir plus sur ' + esc(p.titre) + '">' +
+        '<div class="projet-card-img-wrap"><img src="' + esc(img) + '" alt="' + esc((p.image && p.image.alt) || p.titre) + '" class="projet-card-img" loading="lazy" />' +
+        '<span class="projet-card-status ' + st.cls + '">' + esc(st.label) + '</span></div>' +
+        '<div class="projet-card-body"><div class="projet-card-meta">' +
+        '<span class="projet-card-num">' + esc(num) + '</span>' +
+        '<span class="projet-card-axe">' + esc(p.axe || '') + '</span></div>' +
+        '<h3 class="projet-card-title">' + esc(p.titre || '') + '</h3>' +
+        '<p class="projet-card-desc">' + esc(p.description || '') + '</p>' +
+        '<button class="projet-card-cta" type="button">En savoir plus' +
+        '<iconify-icon icon="solar:arrow-right-bold" width="14" height="14" aria-hidden="true"></iconify-icon></button>' +
+        '</div></article>';
+    }
+
+    function frDate(d) {
+      if (!d) return '';
+      var p = String(d).split('-');
+      return p.length === 3 ? p[0] : d;
+    }
+
+    function buildDrawerData(p, i, key) {
+      var st = STATUS_MAP[p.statut] || { label: p.statut || '', cls: 'status-encours' };
+      var num = 'Projet ' + (i + 1 < 10 ? '0' + (i + 1) : (i + 1));
+      var periode = '';
+      if (p.dateDebut || p.dateFin) periode = (frDate(p.dateDebut) || '?') + ' – ' + (frDate(p.dateFin) || '?');
+      return {
+        num: num, title: p.titre || '', axe: p.axe || '',
+        status: st.label, statusClass: st.cls,
+        img: p.image ? CIASSanity.imageUrl(p.image, { w: 900 }) : 'assets/projet-01.jpg',
+        lead: p.description || '',
+        long: portableTextToPlain(p.descriptionComplete) || p.description || '',
+        period: periode || '—',
+        public: (p.commune && p.commune.length) ? p.commune.join(', ') : 'Tout le territoire',
+        budget: p.budget || '—',
+        timeline: [],
+        partners: p.partenaires || []
+      };
+    }
+
+    var groq = '*[_type=="projet" && statut!="archive"]|order(statut asc){_id,titre,slug,statut,axe,commune,image,description,descriptionComplete,dateDebut,dateFin,budget,partenaires}';
+    CIASSanity.query(groq).then(function (rows) {
+      if (!rows || !rows.length) return; // garde les projets en dur
+      var grid = document.querySelector('.projets-grid-v2');
+      if (!grid) return;
+      var html = '';
+      var data = {};
+      rows.forEach(function (p, i) {
+        var key = 's' + i;
+        html += buildCard(p, i, key);
+        data[key] = buildDrawerData(p, i, key);
+      });
+      grid.innerHTML = html;
+      // Remplace le jeu de données du drawer
+      window.PROJETS_DATA = data;
+      // Re-branche les interactions sur les nouvelles cartes
+      grid.querySelectorAll('[data-projet]').forEach(function (card) {
+        card.addEventListener('click', function () { window.openProjetDrawer(card.dataset.projet); });
+        card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.openProjetDrawer(card.dataset.projet); } });
+      });
+      if (typeof window.initReveal === 'function') window.initReveal();
+    }).catch(function (e) { console.error('Sanity projets:', e); });
+  })();
+  </script>
   <script src="main.js"></script>
 </body>
 </html>
