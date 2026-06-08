@@ -12,8 +12,7 @@ export default defineConfig({
   name: 'cias-ccsud',
   title: 'CIAS · Espace d\'administration',
 
-  // TODO: Remplacer par les vraies valeurs après création du projet sur sanity.io
-  projectId: 'VOTRE_PROJECT_ID',
+  projectId: 'l4gh628p',
   dataset: 'production',
 
   plugins: [

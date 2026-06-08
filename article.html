@@ -183,6 +183,7 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="sanity-client.js"></script>
   <script>
   (function() {
     var DEFAULT_ARTICLES = [
@@ -230,11 +231,13 @@
         hero.style.display = '';
       }
 
-      var bodyHtml = '';
-      var paragraphs = (a.body || a.excerpt || '').split('\n\n');
-      paragraphs.forEach(function(p) {
-        if (p.trim()) bodyHtml += '<p>' + p.trim() + '</p>';
-      });
+      var bodyHtml = a.bodyHtml || '';
+      if (!bodyHtml) {
+        var paragraphs = (a.body || a.excerpt || '').split('\n\n');
+        paragraphs.forEach(function(p) {
+          if (p.trim()) bodyHtml += '<p>' + p.trim() + '</p>';
+        });
+      }
 
       document.getElementById('article-content').innerHTML =
         '<a href="/actualites" class="article-back">' +
@@ -264,17 +267,24 @@
         '</div>';
     }
 
-    var id = getParam('id');
-    if (id) {
-      var article = findArticle(id);
-      if (article) {
-        renderArticle(article);
-      } else {
-        renderNotFound();
-      }
-    } else {
-      renderNotFound();
+    function mapArticle(a) {
+      return {
+        id: (a.slug && a.slug.current) ? a.slug.current : a._id,
+        title: a.titre || '',
+        date: a.datePublication || '',
+        tag: a.categorie || '',
+        excerpt: a.resume || '',
+        image: a.imageUne ? CIASSanity.imageUrl(a.imageUne, { w: 1200, h: 600 }) : '',
+        bodyHtml: CIASSanity.portableTextToHtml(a.contenu) || ('<p>' + CIASSanity.esc(a.resume || '') + '</p>')
+      };
     }
+
+    var id = getParam('id');
+    if (!id) { renderNotFound(); return; }
+    var groq = '*[_type=="actualite" && statut=="publie" && slug.current==$slug][0]{_id,titre,slug,datePublication,categorie,resume,imageUne,contenu}';
+    CIASSanity.query(groq, { slug: id })
+      .then(function (a) { if (a) renderArticle(mapArticle(a)); else renderNotFound(); })
+      .catch(function (e) { console.error('Sanity article:', e); renderNotFound(); });
   })();
   </script>
 </body>

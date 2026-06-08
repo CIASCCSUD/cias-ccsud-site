@@ -147,6 +147,7 @@
     <span class="float-label">Nous contacter</span>
   </a>
   <script src="main.js"></script>
+  <script src="sanity-client.js"></script>
   <script>
   (function () {
     /* Aucun article par défaut, les actualités seront publiées via Sanity CMS */
@@ -170,10 +171,24 @@
       grid.innerHTML = rest.map(function(a, i){ return renderCard(a, (i % 6) + 1); }).join('');
       if (typeof window.initReveal === 'function') window.initReveal();
     }
-    /* Chargement : localStorage uniquement (sera remplacé par Sanity CMS) */
-    var articles = [];
-    try { var stored = localStorage.getItem('cias-articles'); if (stored) { var parsed = JSON.parse(stored); if (Array.isArray(parsed)) articles = parsed; } } catch(e) {}
-    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', function(){ renderAll(articles); }); } else { renderAll(articles); }
+    /* Chargement depuis Sanity CMS (actualités au statut « publié »). */
+    function mapActu(a) {
+      return {
+        id: (a.slug && a.slug.current) ? a.slug.current : a._id,
+        title: a.titre || '',
+        date: a.datePublication || '',
+        tag: a.categorie || '',
+        excerpt: a.resume || '',
+        image: a.imageUne ? CIASSanity.imageUrl(a.imageUne, { w: 800, h: 450 }) : ''
+      };
+    }
+    function loadAndRender() {
+      var groq = '*[_type=="actualite" && statut=="publie"]|order(datePublication desc){_id,titre,slug,datePublication,categorie,resume,imageUne}';
+      CIASSanity.query(groq)
+        .then(function (rows) { renderAll((rows || []).map(mapActu)); })
+        .catch(function (e) { console.error('Sanity actualités:', e); renderAll([]); });
+    }
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', loadAndRender); } else { loadAndRender(); }
   })();
 
   document.querySelectorAll('.blog-filter').forEach(function(btn) {
