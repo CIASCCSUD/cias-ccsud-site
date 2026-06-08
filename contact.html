@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · CIAS de la CCSUD</title>
+  <meta name="description" content="Contactez le CIAS de la CCSUD : adresse, téléphone, email et formulaire de contact. Siège social à Bandrélé, Mayotte." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon-cias.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+  <div class="tricolore" aria-hidden="true"><span class="bleu"></span><span class="blanc"></span><span class="rouge"></span></div>
+  <nav class="navbar" id="navbar" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <a href="/accueil" class="nav-logo" aria-label="CIAS de la CCSUD · Accueil">
+        <img src="assets/logo-cias.png" alt="CIAS de la CCSUD" class="nav-logo-img" height="44" />
+      </a>
+      <div class="nav-links" role="menubar">
+        <a href="/accueil" role="menuitem" data-i18n="nav.home">Accueil</a>
+        <a href="/le-cias" role="menuitem" data-i18n="nav.about">Le CIAS</a>
+        <a href="/gouvernance" role="menuitem" data-i18n="nav.gouvernance">Gouvernance</a>
+        <a href="/deliberations" role="menuitem">Délibérations</a>
+        
+        <a href="/nos-projets" role="menuitem" data-i18n="nav.projets">Nos projets</a>
+        <a href="/actualites" role="menuitem" data-i18n="nav.actualites">Actualités</a>
+        <a href="/les-communes" role="menuitem" data-i18n="nav.membres">Les communes</a>
+        <a href="/contact" class="nav-cta active" role="menuitem" data-i18n="nav.contact">Contact</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu" role="menu" aria-label="Menu mobile">
+    <a href="/accueil" role="menuitem" data-i18n="nav.home">Accueil</a>
+    <a href="/le-cias" role="menuitem" data-i18n="nav.about">Le CIAS</a>
+    <a href="/gouvernance" role="menuitem" data-i18n="nav.gouvernance">Gouvernance</a>
+        <a href="/deliberations" role="menuitem">Délibérations</a>
+        
+    <a href="/nos-projets" role="menuitem" data-i18n="nav.projets">Nos projets</a>
+    <a href="/actualites" role="menuitem" data-i18n="nav.actualites">Actualités</a>
+    <a href="/les-communes" role="menuitem" data-i18n="nav.membres">Les communes</a>
+    <a href="/contact" class="nav-cta" role="menuitem" data-i18n="nav.contact">Contact</a>
+  </div>
+
+  <main id="main">
+  <section class="page-header" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&h=500&fit=crop&crop=top&q=75');">
+    <div class="container">
+      <p class="section-label">Nous joindre</p>
+      <h1>Contact</h1>
+      <p class="page-header-intro">Notre équipe vous accueille du lundi au vendredi pour vous accompagner dans vos démarches.</p>
+    </div>
+  </section>
+
+    <section style="background: var(--c-bg-alt); padding-top: 2.5rem;" aria-label="Informations de contact et formulaire">
+      <div class="container">
+        <div style="margin-bottom:2rem;">
+          <p class="section-label" data-i18n="contact.hero.label">Coordonnées</p>
+          <h1 style="font-size:clamp(1.6rem,4vw,2.2rem);" data-i18n="contact.hero.title">Nous contacter</h1>
+        </div>
+        <div class="contact-grid">
+          <div class="reveal reveal-delay-1">
+            <h3 class="contact-form-title" data-i18n="contact.form.title">Envoyer un message</h3>
+            <p style="font-size:0.875rem; margin-bottom: 1.5rem;" data-i18n="contact.form.intro">Une question, une demande d'information ? Remplissez le formulaire ci-dessous et nous vous répondrons dans les meilleurs délais.</p>
+            <div class="contact-form" id="contact-form" role="form" aria-label="Formulaire de contact">
+              <div class="form-group">
+                <label for="contact-nom">Nom complet <span style="color:var(--c-rouge);">*</span></label>
+                <input type="text" id="contact-nom" name="nom" placeholder="Votre nom et prénom" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-commune">Commune de résidence</label>
+                <select id="contact-commune" name="commune">
+                  <option value="">· Votre commune ·</option>
+                  <option value="bandrele">Bandrélé</option>
+                  <option value="chirongui">Chirongui</option>
+                  <option value="kani-keli">Kani-Kéli</option>
+                  <option value="boueni">Bouéni</option>
+                  <option value="autre">Autre commune / Extérieur</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Adresse e-mail <span style="color:var(--c-rouge);">*</span></label>
+                <input type="email" id="contact-email" name="email" placeholder="votre@email.fr" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-tel">Téléphone</label>
+                <input type="tel" id="contact-tel" name="tel" placeholder="06 39 XX XX XX" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="contact-domaine">Domaine concerné <span style="color:var(--c-rouge);">*</span></label>
+                <select id="contact-domaine" name="domaine" required>
+                  <option value="">· Choisir un domaine ·</option>
+                  <option value="sante">Santé · Maison de santé, accès aux soins</option>
+                  <option value="insertion">Insertion · Mobil'Sud, emploi, formation</option>
+                  <option value="logement">Logement · Habitat, hébergement d'urgence</option>
+                  <option value="droits">Accès aux droits · Aide juridique, démarches</option>
+                  <option value="jeunesse">Jeunesse · Bourses, culture, sport</option>
+                  <option value="partenariat">Partenariat institutionnel</option>
+                  <option value="info">Information générale sur le CIAS</option>
+                  <option value="autre">Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Votre demande <span style="color:var(--c-rouge);">*</span></label>
+                <textarea id="contact-message" name="message" placeholder="Décrivez votre situation ou votre question. Plus vous serez précis(e), mieux nous pourrons vous orienter…" required style="min-height:120px;"></textarea>
+              </div>
+              <div class="form-group" style="display:flex; align-items:flex-start; gap:0.5rem; flex-direction:row;">
+                <input type="checkbox" id="contact-rgpd" name="rgpd" required style="margin-top:3px; width:auto; flex-shrink:0;" />
+                <label for="contact-rgpd" style="font-size:0.75rem; color:var(--c-text-light); font-weight:400; line-height:1.5;">J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la politique de confidentialité du CIAS de la CCSUD.</label>
+              </div>
+              <button type="button" class="form-submit" id="form-submit-btn" aria-label="Envoyer le message">Envoyer le message</button>
+              <div class="form-success" id="form-success" role="alert">Merci pour votre message ! Nous vous répondrons dans les meilleurs délais.</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="contact-info-title reveal" data-i18n="contact.info.title">Retrouvez-nous</h3>
+            <div class="contact-items">
+              <div class="contact-item reveal reveal-delay-1">
+                <div class="contact-item-icon"><iconify-icon icon="solar:map-point-bold" width="20" height="20" style="color:#6B3A2A;" aria-hidden="true"></iconify-icon></div>
+                <div class="contact-item-content"><label>Siège social</label><p>43 rue mkoumafejou, ancienne mairie<br>97660 Bandrélé, Mayotte</p></div>
+              </div>
+              <div class="contact-item reveal reveal-delay-2">
+                <div class="contact-item-icon"><iconify-icon icon="solar:map-point-bold" width="20" height="20" style="color:#000091;" aria-hidden="true"></iconify-icon></div>
+                <div class="contact-item-content"><label>Bureau</label><p>Ruelle Baitissalam, Nyambadao<br>97660 Bandrélé, Mayotte</p></div>
+              </div>
+              <div class="contact-item reveal reveal-delay-3">
+                <div class="contact-item-icon"><iconify-icon icon="solar:phone-calling-bold" width="20" height="20" style="color:#6B3A2A;" aria-hidden="true"></iconify-icon></div>
+                <div class="contact-item-content"><label>Téléphone</label><p><a href="tel:+33619007814">06 39 007 814</a></p></div>
+              </div>
+              <div class="contact-item reveal reveal-delay-4">
+                <div class="contact-item-icon"><iconify-icon icon="solar:letter-bold" width="20" height="20" style="color:#000091;" aria-hidden="true"></iconify-icon></div>
+                <div class="contact-item-content"><label>Courriel</label><p><a href="mailto:cias.ccsud@ccsud.yt">cias.ccsud@ccsud.yt</a></p></div>
+              </div>
+            </div>
+            <div class="gov-info-box reveal" style="margin-top:2rem;">
+              <p><strong>Horaires d'ouverture :</strong> Du lundi au vendredi, de 7h30 à 12h00 et de 13h30 à 16h30. Fermé les jours fériés.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Localisation" style="padding: 3rem 0 6rem;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <p class="section-label reveal" style="justify-content:center;" data-i18n="contact.loc.label">Localisation</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="contact.loc.title">Nous trouver</h2>
+        </div>
+        <div class="contact-map reveal reveal-delay-2">
+          <iframe src="https://maps.google.com/maps?q=Bandrel%C3%A9%2C+Mayotte&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Google Maps · Bandrélé, Mayotte"></iframe>
+        </div>
+        <p class="reveal reveal-delay-3" style="text-align:center; margin-top:1rem; font-size:0.88rem;">43 rue mkoumafejou, ancienne mairie · 97660 Bandrélé, Mayotte</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Pied de page">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-cias.png" alt="CIAS" class="footer-logo-img" />
+          <div class="footer-logo-main">CIAS</div>
+          <div class="footer-logo-sub">Centre Intercommunal d'Action Sociale · Sud de Mayotte</div>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/ciasdelaccsud" target="_blank" rel="noopener" aria-label="LinkedIn du CIAS de la CCSUD" class="footer-social-link">
+              <iconify-icon icon="mdi:linkedin" width="20" height="20" aria-hidden="true"></iconify-icon>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61586955496248" target="_blank" rel="noopener" aria-label="Facebook du CIAS de la CCSUD" class="footer-social-link">
+              <iconify-icon icon="mdi:facebook" width="20" height="20" aria-hidden="true"></iconify-icon>
+            </a>
+          </div>
+          <div class="footer-slogan"><em>Perle de Solidarité</em></div>
+          <p>Établissement public administratif au service des habitants de Bandrélé, Chirongui, Kani-Kéli et Bouéni.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/accueil">Accueil</a></li>
+            <li><a href="/le-cias">Le CIAS</a></li>
+            <li><a href="/gouvernance">Gouvernance</a></li>
+            <li><a href="/deliberations">Délibérations</a></li>
+            
+            <li><a href="/nos-projets">Nos projets</a></li>
+            <li><a href="/actualites">Actualités</a></li>
+            <li><a href="/les-communes">Les communes</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:cias.ccsud@ccsud.yt">cias.ccsud@ccsud.yt</a></li>
+            <li><a href="tel:+33619007814">06 39 007 814</a></li>
+            <li><a href="/contact">Formulaire de contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CIAS de la CCSUD · Tous droits réservés</span>
+        <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+          <a href="/mentions-legales">Mentions légales</a>
+          <a href="/accessibilite">Accessibilité</a>
+          <a href="https://fondationstudio.fr" target="_blank" rel="noopener" class="footer-credit-link">Site créé par <strong>fondationstudio.fr</strong></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
