@@ -1,17 +1,34 @@
 {
-  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     { "source": "/", "destination": "/accueil", "permanent": false },
+    { "source": "/index.html", "destination": "/accueil", "permanent": true },
     { "source": "/index", "destination": "/accueil", "permanent": true },
+    { "source": "/a-propos.html", "destination": "/le-cias", "permanent": true },
     { "source": "/a-propos", "destination": "/le-cias", "permanent": true },
+    { "source": "/projets.html", "destination": "/nos-projets", "permanent": true },
     { "source": "/projets", "destination": "/nos-projets", "permanent": true },
-    { "source": "/membres", "destination": "/les-communes", "permanent": true }
+    { "source": "/membres.html", "destination": "/les-communes", "permanent": true },
+    { "source": "/membres", "destination": "/les-communes", "permanent": true },
+    { "source": "/gouvernance.html", "destination": "/gouvernance", "permanent": true },
+    { "source": "/deliberations.html", "destination": "/deliberations", "permanent": true },
+    { "source": "/actualites.html", "destination": "/actualites", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/article.html", "destination": "/article", "permanent": true },
+    { "source": "/mentions-legales.html", "destination": "/mentions-legales", "permanent": true },
+    { "source": "/accessibilite.html", "destination": "/accessibilite", "permanent": true }
   ],
   "rewrites": [
     { "source": "/accueil", "destination": "/index.html" },
     { "source": "/le-cias", "destination": "/a-propos.html" },
     { "source": "/nos-projets", "destination": "/projets.html" },
-    { "source": "/les-communes", "destination": "/membres.html" }
+    { "source": "/les-communes", "destination": "/membres.html" },
+    { "source": "/gouvernance", "destination": "/gouvernance.html" },
+    { "source": "/deliberations", "destination": "/deliberations.html" },
+    { "source": "/actualites", "destination": "/actualites.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/article", "destination": "/article.html" },
+    { "source": "/mentions-legales", "destination": "/mentions-legales.html" },
+    { "source": "/accessibilite", "destination": "/accessibilite.html" }
   ]
 }
