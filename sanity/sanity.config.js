@@ -6,6 +6,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import actualite from './schemas/actualite'
 import projet from './schemas/projet'
+import deliberation from './schemas/deliberation'
 import contenuSite from './schemas/contenuSite'
 
 export default defineConfig({
@@ -21,14 +22,22 @@ export default defineConfig({
         S.list()
           .title('Contenu du site')
           .items([
-            S.item()
+            S.listItem()
+              .id('actualites')
               .title('Actualités')
               .child(S.documentTypeList('actualite').title('Toutes les actualités')),
-            S.item()
+            S.listItem()
+              .id('projets')
               .title('Nos projets')
               .child(S.documentTypeList('projet').title('Tous les projets')),
-            S.item()
-              .title('Contenu éditorial')
+            S.listItem()
+              .id('deliberations')
+              .title('Délibérations')
+              .child(S.documentTypeList('deliberation').title('Délibérations & procès-verbaux')),
+            S.divider(),
+            S.listItem()
+              .id('contenuSite')
+              .title('Textes & coordonnées du site')
               .child(
                 S.document()
                   .schemaType('contenuSite')
@@ -41,6 +50,6 @@ export default defineConfig({
   ],
 
   schema: {
-    types: [actualite, projet, contenuSite],
+    types: [actualite, projet, deliberation, contenuSite],
   },
 })

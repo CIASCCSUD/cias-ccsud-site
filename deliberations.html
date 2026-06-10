@@ -187,11 +187,12 @@
   <script src="sanity-client.js"></script>
   <script src="nav-visibility.js"></script>
   <script src="main.js"></script>
+  <script src="sanity-client.js"></script>
   <script>
   (function () {
-    var STORE = 'cias-deliberations';
     var currentFilter = 'all';
     var currentYear = 'all';
+    var DOCS = []; // rempli depuis Sanity
 
     function escHtml(str) {
       return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -205,13 +206,7 @@
       return d;
     }
 
-    function getDocs() {
-      try {
-        var raw = localStorage.getItem(STORE);
-        if (raw) { var p = JSON.parse(raw); if (Array.isArray(p)) return p; }
-      } catch(e) {}
-      return [];
-    }
+    function getDocs() { return DOCS; }
 
     function dlIcon() {
       return '<iconify-icon icon="solar:download-bold" width="13" height="13" style="color:white;vertical-align:middle;"></iconify-icon>';
@@ -303,10 +298,26 @@
       render();
     });
 
+    function mapDoc(d) {
+      return {
+        titre: d.titre || '',
+        type: d.type || 'Délibération',
+        date: d.date || '',
+        seance: d.seance || '',
+        description: d.description || '',
+        pdfUrl: d.pdf ? CIASSanity.fileUrl(d.pdf) : ''
+      };
+    }
+    function loadAndRender() {
+      var groq = '*[_type=="deliberation" && statut=="publie"]|order(date desc){titre,type,date,seance,description,pdf}';
+      CIASSanity.query(groq)
+        .then(function (rows) { DOCS = (rows || []).map(mapDoc); render(); })
+        .catch(function (e) { console.error('Sanity délibérations:', e); DOCS = []; render(); });
+    }
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', render);
+      document.addEventListener('DOMContentLoaded', loadAndRender);
     } else {
-      render();
+      loadAndRender();
     }
   })();
   </script>

@@ -5,8 +5,7 @@ export default {
   name: 'contenuSite',
   title: 'Contenu du site',
   type: 'document',
-  // Singleton : un seul document de ce type
-  __experimental_actions: ['update', 'publish'],
+  // Singleton : un seul document de ce type (création unique gérée via la structure)
   fields: [
     // ── Visibilité des pages ──
     {
