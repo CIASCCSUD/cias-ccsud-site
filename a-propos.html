@@ -285,6 +285,20 @@
   </a>
   <script src="sanity-client.js"></script>
   <script src="nav-visibility.js"></script>
+  <script src="page-content.js"></script>
+  <script>
+  /* Paragraphes de mission éditables depuis Sanity (sinon textes par défaut). */
+  (function () {
+    if (typeof CIASSanity === 'undefined') return;
+    CIASSanity.query('*[_type=="contenuSite"][0].aPropos').then(function (ap) {
+      if (!ap) return;
+      var map = { 'about.mission.p1': ap.mission1, 'about.mission.p2': ap.mission2, 'about.mission.p3': ap.mission3 };
+      Object.keys(map).forEach(function (k) {
+        if (map[k]) { var el = document.querySelector('[data-i18n="' + k + '"]'); if (el) el.textContent = map[k]; }
+      });
+    }).catch(function (e) { console.error('Sanity à-propos:', e); });
+  })();
+  </script>
   <script src="main.js"></script>
 </body>
 </html>

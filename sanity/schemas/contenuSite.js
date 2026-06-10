@@ -1,6 +1,21 @@
 // Schéma Sanity · Contenu éditorial du site
 // Permet au client de modifier tous les textes du site depuis le Studio Sanity
 
+// Génère un sous-objet « en-tête de page » (sur-titre / titre / intro).
+function entetePage(name, title) {
+  return {
+    name,
+    title,
+    type: 'object',
+    options: { collapsible: true, collapsed: true },
+    fields: [
+      { name: 'surtitre', title: 'Sur-titre', type: 'string' },
+      { name: 'titre', title: 'Titre', type: 'string' },
+      { name: 'intro', title: 'Introduction', type: 'text', rows: 2 },
+    ],
+  };
+}
+
 export default {
   name: 'contenuSite',
   title: 'Contenu du site',
@@ -23,11 +38,29 @@ export default {
         { name: 'lesCommunes', title: 'Les communes', type: 'boolean', initialValue: true },
       ],
     },
+    // ── En-têtes des pages (sur-titre / titre / intro affichés en haut de chaque page) ──
+    {
+      name: 'entetes',
+      title: 'En-têtes des pages',
+      description: 'Le sur-titre, le titre et l\'introduction affichés en haut de chaque page.',
+      type: 'object',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        entetePage('leCias', 'Page · Le CIAS'),
+        entetePage('gouvernance', 'Page · Gouvernance'),
+        entetePage('nosProjets', 'Page · Nos projets'),
+        entetePage('actualites', 'Page · Actualités'),
+        entetePage('lesCommunes', 'Page · Les communes'),
+        entetePage('deliberations', 'Page · Délibérations'),
+        entetePage('contact', 'Page · Contact'),
+      ],
+    },
     // ── Page d'accueil ──
     {
       name: 'hero',
       title: 'Page d\'accueil · Section principale',
       type: 'object',
+      options: { collapsible: true, collapsed: true },
       fields: [
         { name: 'titre', title: 'Titre principal', type: 'text', rows: 2 },
         { name: 'sousTitre', title: 'Sous-titre', type: 'text', rows: 3 },
