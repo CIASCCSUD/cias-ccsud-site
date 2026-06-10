@@ -280,23 +280,10 @@
 
   <script src="main.js"></script>
 
-  <!-- Chargeur de contenu éditable · page d'accueil (Sanity, sinon textes par défaut) -->
+  <!-- Contenu éditable depuis Sanity (textes de page + visibilité du menu) -->
   <script src="sanity-client.js"></script>
   <script src="nav-visibility.js"></script>
-  <script>
-  /* Textes de la page d'accueil éditables depuis Sanity (dossier « Accueil »).
-     Chaque champ correspond à un élément marqué data-edit="<champ>".
-     Fallback : si Sanity ne renvoie rien, les textes par défaut restent. */
-  (function() {
-    CIASSanity.query('*[_type=="pageAccueil"][0]').then(function (c) {
-      if (!c) return;
-      document.querySelectorAll('[data-edit]').forEach(function (el) {
-        var key = el.getAttribute('data-edit');
-        if (c[key]) el.textContent = c[key];
-      });
-    }).catch(function (e) { console.error('Sanity accueil:', e); });
-  })();
-  </script>
+  <script src="page-content.js"></script>
 
 </body>
 </html>

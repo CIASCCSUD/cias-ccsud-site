@@ -52,11 +52,11 @@
     <section class="page-header" style="background-image: url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1400&h=500&fit=crop&crop=center&q=75');" aria-label="En-tête page À propos">
       <div class="container ap-header-inner">
         <div class="ap-header-col-left">
-          <p class="section-label">Notre identité</p>
-          <h1>À propos du Centre Intercommunal d'Action Sociale</h1>
+          <p class="section-label" data-edit="surtitre">Notre identité</p>
+          <h1 data-edit="titre">À propos du Centre Intercommunal d'Action Sociale</h1>
         </div>
         <div class="ap-header-col-right">
-          <p class="page-header-intro">Porté par la CCSUD, le CIAS conduit une politique sociale ambitieuse au service des quatre communes du Sud de Mayotte.</p>
+          <p class="page-header-intro" data-edit="intro">Porté par la CCSUD, le CIAS conduit une politique sociale ambitieuse au service des quatre communes du Sud de Mayotte.</p>
           <a href="/gouvernance" class="ap-header-link">Découvrir la gouvernance
             <iconify-icon icon="solar:arrow-right-bold" width="16" height="16" aria-hidden="true"></iconify-icon>
           </a>
@@ -68,11 +68,11 @@
     <section class="mission-bg" style="background-image: url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1400&h=700&fit=crop&crop=center&q=80');" aria-label="Notre mission">
       <div class="container">
         <div class="mission-content">
-          <p class="section-label reveal" data-i18n="about.mission.label">Notre mission</p>
-          <h2 class="section-title reveal reveal-delay-1" data-i18n="about.mission.title">Un acteur clé de la solidarité</h2>
-          <p class="reveal reveal-delay-2" style="margin-bottom:1rem;" data-i18n="about.mission.p1">La Communauté de Communes du Sud de Mayotte a choisi d'exercer la compétence <strong>« action sociale d'intérêt communautaire »</strong> et en a confié la mise en œuvre à son Centre Intercommunal d'Action Sociale (CIAS).</p>
-          <p class="reveal reveal-delay-3" style="margin-bottom:1rem;" data-i18n="about.mission.p2">Établissement public administratif, le CIAS dispose d'une personnalité morale de droit public, lui garantissant une autonomie administrative et financière vis-à-vis des communes membres.</p>
-          <p class="reveal reveal-delay-4" data-i18n="about.mission.p3">Son organisation et son fonctionnement sont encadrés par les dispositions du <em>Code de l'Action Sociale et des Familles</em>.</p>
+          <p class="section-label reveal" data-i18n="about.mission.label" data-edit="missionSurtitre">Notre mission</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="about.mission.title" data-edit="missionTitre">Un acteur clé de la solidarité</h2>
+          <p class="reveal reveal-delay-2" style="margin-bottom:1rem;" data-i18n="about.mission.p1" data-edit="mission1">La Communauté de Communes du Sud de Mayotte a choisi d'exercer la compétence <strong>« action sociale d'intérêt communautaire »</strong> et en a confié la mise en œuvre à son Centre Intercommunal d'Action Sociale (CIAS).</p>
+          <p class="reveal reveal-delay-3" style="margin-bottom:1rem;" data-i18n="about.mission.p2" data-edit="mission2">Établissement public administratif, le CIAS dispose d'une personnalité morale de droit public, lui garantissant une autonomie administrative et financière vis-à-vis des communes membres.</p>
+          <p class="reveal reveal-delay-4" data-i18n="about.mission.p3" data-edit="mission3">Son organisation et son fonctionnement sont encadrés par les dispositions du <em>Code de l'Action Sociale et des Familles</em>.</p>
         </div>
       </div>
     </section>
@@ -82,7 +82,7 @@
       <div class="ap-axes-overlay" aria-hidden="true"></div>
       <div class="container ap-axes-inner">
         <div class="ap-axes-header reveal">
-          <p class="section-label" style="color:rgba(255,255,255,0.5);">Nos actions</p>
+          <p class="section-label" style="color:rgba(255,255,255,0.5);" data-edit="axesSurtitre">Nos actions</p>
           <h2 style="color:white;">5 axes d'intervention</h2>
           <p class="ap-axes-intro">Le CIAS intervient sur cinq domaines essentiels pour répondre aux besoins des habitants du Sud de Mayotte.</p>
         </div>
@@ -139,8 +139,8 @@
       <div class="container">
         <div class="feature-section reverse">
           <div>
-            <p class="section-label reveal" data-i18n="about.values.label">Nos valeurs fondatrices</p>
-            <h2 class="section-title reveal reveal-delay-1" data-i18n="about.values.title">Ce qui nous guide au quotidien</h2>
+            <p class="section-label reveal" data-i18n="about.values.label" data-edit="valeursSurtitre">Nos valeurs fondatrices</p>
+            <h2 class="section-title reveal reveal-delay-1" data-i18n="about.values.title" data-edit="valeursTitre">Ce qui nous guide au quotidien</h2>
             <ol class="ap-values-list" style="margin-top:1.75rem;">
               <li class="ap-values-item reveal reveal-delay-1">
                 <div class="ap-values-body">
@@ -174,7 +174,7 @@
       <div class="ap-territoire-overlay" aria-hidden="true"></div>
       <div class="container ap-territoire-inner">
         <div class="ap-territoire-header reveal">
-          <p class="section-label" style="color:rgba(255,255,255,0.5);">Le territoire</p>
+          <p class="section-label" style="color:rgba(255,255,255,0.5);" data-edit="territoireSurtitre">Le territoire</p>
           <h2 style="color:white;">4 communes, un seul CIAS</h2>
           <p class="ap-territoire-intro">Le CIAS couvre l'ensemble du territoire du Sud de Mayotte, réunissant quatre communes autour d'un projet social commun.</p>
         </div>
@@ -286,19 +286,6 @@
   <script src="sanity-client.js"></script>
   <script src="nav-visibility.js"></script>
   <script src="page-content.js"></script>
-  <script>
-  /* Paragraphes de mission éditables depuis Sanity (sinon textes par défaut). */
-  (function () {
-    if (typeof CIASSanity === 'undefined') return;
-    CIASSanity.query('*[_type=="contenuSite"][0].aPropos').then(function (ap) {
-      if (!ap) return;
-      var map = { 'about.mission.p1': ap.mission1, 'about.mission.p2': ap.mission2, 'about.mission.p3': ap.mission3 };
-      Object.keys(map).forEach(function (k) {
-        if (map[k]) { var el = document.querySelector('[data-i18n="' + k + '"]'); if (el) el.textContent = map[k]; }
-      });
-    }).catch(function (e) { console.error('Sanity à-propos:', e); });
-  })();
-  </script>
   <script src="main.js"></script>
 </body>
 </html>

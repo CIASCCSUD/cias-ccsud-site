@@ -9,6 +9,20 @@ import projet from './schemas/projet'
 import deliberation from './schemas/deliberation'
 import contenuSite from './schemas/contenuSite'
 import pageAccueil from './schemas/pageAccueil'
+import pagesSchemas from './schemas/pages'
+
+// Singletons « textes de page » : un dossier par page dans le Studio.
+const PAGES = [
+  { type: 'pageAccueil', id: 'page-accueil', title: 'Accueil' },
+  { type: 'pageLeCias', id: 'page-le-cias', title: 'Le CIAS' },
+  { type: 'pageGouvernance', id: 'page-gouvernance', title: 'Gouvernance' },
+  { type: 'pageProjets', id: 'page-projets', title: 'Nos projets' },
+  { type: 'pageActualites', id: 'page-actualites', title: 'Actualités' },
+  { type: 'pageCommunes', id: 'page-communes', title: 'Les communes' },
+  { type: 'pageDeliberations', id: 'page-deliberations', title: 'Délibérations' },
+  { type: 'pageContact', id: 'page-contact', title: 'Contact' },
+]
+const SINGLETON_TYPES = [...PAGES.map((p) => p.type), 'contenuSite']
 
 export default defineConfig({
   name: 'cias-ccsud',
@@ -23,16 +37,26 @@ export default defineConfig({
         S.list()
           .title('Contenu du site')
           .items([
+            // ── Textes des pages (un dossier par page) ──
             S.listItem()
-              .id('pageAccueil')
-              .title('Accueil')
+              .id('textesPages')
+              .title('Textes des pages')
               .child(
-                S.document()
-                  .schemaType('pageAccueil')
-                  .documentId('page-accueil')
-                  .title('Textes de la page d\'accueil')
+                S.list()
+                  .title('Textes des pages')
+                  .items(
+                    PAGES.map((p) =>
+                      S.listItem()
+                        .id(p.type)
+                        .title(p.title)
+                        .child(
+                          S.document().schemaType(p.type).documentId(p.id).title(p.title)
+                        )
+                    )
+                  )
               ),
             S.divider(),
+            // ── Contenus de type blog ──
             S.listItem()
               .id('actualites')
               .title('Actualités')
@@ -46,14 +70,15 @@ export default defineConfig({
               .title('Délibérations')
               .child(S.documentTypeList('deliberation').title('Délibérations & procès-verbaux')),
             S.divider(),
+            // ── Réglages ──
             S.listItem()
               .id('contenuSite')
-              .title('Textes & coordonnées du site')
+              .title('Réglages (menu, coordonnées)')
               .child(
                 S.document()
                   .schemaType('contenuSite')
                   .documentId('contenu-site')
-                  .title('Textes & coordonnées du site')
+                  .title('Réglages du site')
               ),
           ]),
     }),
@@ -61,16 +86,16 @@ export default defineConfig({
   ],
 
   schema: {
-    types: [actualite, projet, deliberation, contenuSite, pageAccueil],
+    types: [actualite, projet, deliberation, contenuSite, pageAccueil, ...pagesSchemas],
   },
 
   // Les singletons (un seul document) ne doivent pas être créables/dupliquables
   // depuis le bouton « + » global du Studio.
   document: {
     newDocumentOptions: (prev) =>
-      prev.filter((item) => !['pageAccueil', 'contenuSite'].includes(item.templateId)),
+      prev.filter((item) => !SINGLETON_TYPES.includes(item.templateId)),
     actions: (prev, { schemaType }) =>
-      ['pageAccueil', 'contenuSite'].includes(schemaType)
+      SINGLETON_TYPES.includes(schemaType)
         ? prev.filter(({ action }) => action !== 'duplicate' && action !== 'delete')
         : prev,
   },
