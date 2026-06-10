@@ -8,6 +8,7 @@ import actualite from './schemas/actualite'
 import projet from './schemas/projet'
 import deliberation from './schemas/deliberation'
 import contenuSite from './schemas/contenuSite'
+import pageAccueil from './schemas/pageAccueil'
 
 export default defineConfig({
   name: 'cias-ccsud',
@@ -22,6 +23,16 @@ export default defineConfig({
         S.list()
           .title('Contenu du site')
           .items([
+            S.listItem()
+              .id('pageAccueil')
+              .title('Accueil')
+              .child(
+                S.document()
+                  .schemaType('pageAccueil')
+                  .documentId('page-accueil')
+                  .title('Textes de la page d\'accueil')
+              ),
+            S.divider(),
             S.listItem()
               .id('actualites')
               .title('Actualités')
@@ -50,6 +61,17 @@ export default defineConfig({
   ],
 
   schema: {
-    types: [actualite, projet, deliberation, contenuSite],
+    types: [actualite, projet, deliberation, contenuSite, pageAccueil],
+  },
+
+  // Les singletons (un seul document) ne doivent pas être créables/dupliquables
+  // depuis le bouton « + » global du Studio.
+  document: {
+    newDocumentOptions: (prev) =>
+      prev.filter((item) => !['pageAccueil', 'contenuSite'].includes(item.templateId)),
+    actions: (prev, { schemaType }) =>
+      ['pageAccueil', 'contenuSite'].includes(schemaType)
+        ? prev.filter(({ action }) => action !== 'duplicate' && action !== 'delete')
+        : prev,
   },
 })
