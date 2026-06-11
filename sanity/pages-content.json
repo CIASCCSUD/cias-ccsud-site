@@ -1,0 +1,105 @@
+{
+ "page-accueil": {
+  "_type": "pageAccueil",
+  "fields": {
+   "heroTitre": "La solidarité au service du Sud de Mayotte",
+   "heroSousTitre": "Acteur public de la solidarité dans le Sud, le CIAS accompagne au quotidien les habitants de Bandrélé, Chirongui, Kani-Kéli et Bouéni : santé, logement, accès aux droits, insertion.",
+   "accesRapideSurtitre": "Accès rapide",
+   "accesRapideTitre": "Comment pouvons-nous vous aider ?",
+   "missionSurtitre": "Qui sommes-nous",
+   "missionTitre": "Un acteur essentiel de la solidarité territoriale",
+   "missionTexte": "Le CIAS coordonne l'action sociale d'intérêt communautaire sur les quatre communes du Sud de Mayotte. Notre engagement : offrir à chaque habitant un accompagnement concret, près de chez lui, pour sa santé, son logement, ses droits et son insertion professionnelle.",
+   "chiffresSurtitre": "Le CIAS en chiffres",
+   "chiffresTitre": "Un territoire uni par la solidarité",
+   "actualitesSurtitre": "Actualités",
+   "actualitesTitre": "Les dernières nouvelles du Centre Intercommunal d'Action Sociale",
+   "citationFonction": "Président du CIAS de la CCSUD",
+   "citationAuteur": "DJAE Wirdani",
+   "citationTexte": "Notre territoire fait face à d’immenses défis… mais il porte en lui une force encore plus grande : celle de ses habitants, de leur solidarité et de leur résilience. Le CIAS s’engage chaque jour à transformer cette force collective en actions concrètes, afin que chaque habitant du Sud de Mayotte puisse vivre dignement, faire entendre sa voix et accéder pleinement à ses droits.",
+   "ctaTitre": "Vous avez besoin d'un accompagnement ?"
+  }
+ },
+ "page-le-cias": {
+  "_type": "pageLeCias",
+  "fields": {
+   "surtitre": "Notre identité",
+   "titre": "À propos du Centre Intercommunal d'Action Sociale",
+   "intro": "Porté par la CCSUD, le CIAS conduit une politique sociale ambitieuse au service des quatre communes du Sud de Mayotte.",
+   "missionSurtitre": "Notre mission",
+   "missionTitre": "Un acteur clé de la solidarité",
+   "mission1": "La Communauté de Communes du Sud de Mayotte a choisi d'exercer la compétence « action sociale d'intérêt communautaire »",
+   "mission2": "Établissement public administratif, le CIAS dispose d'une personnalité morale de droit public, lui garantissant une autonomie administrative et financière vis-à-vis des communes membres.",
+   "mission3": "Son organisation et son fonctionnement sont encadrés par les dispositions du Code de l'Action Sociale et des Familles",
+   "axesSurtitre": "Nos actions",
+   "valeursSurtitre": "Nos valeurs fondatrices",
+   "valeursTitre": "Ce qui nous guide au quotidien",
+   "territoireSurtitre": "Le territoire"
+  }
+ },
+ "page-gouvernance": {
+  "_type": "pageGouvernance",
+  "fields": {
+   "surtitre": "Organisation",
+   "titre": "Gouvernance",
+   "intro": "Les femmes, les hommes et les instances qui pilotent l'action sociale du Sud, au plus près des habitants.",
+   "structureSurtitre": "Structure",
+   "structureTitre": "Organigramme du Centre Intercommunal d'Action Sociale",
+   "chiffresSurtitre": "Transparence",
+   "chiffresTitre": "Nos engagements en chiffres",
+   "principesSurtitre": "Nos engagements",
+   "principesTitre": "Une gouvernance fondée sur quatre principes"
+  }
+ },
+ "page-projets": {
+  "_type": "pageProjets",
+  "fields": {
+   "surtitre": "Actions territoriales",
+   "titre": "Nos Projets",
+   "intro": "Le CIAS développe 8 projets structurants pour répondre aux besoins des habitants du Sud de Mayotte.",
+   "introSurtitre": "Programme structurant 2025–2029",
+   "introTitre": "Huit projets structurants",
+   "introLead": "Chaque projet répond à un besoin précis du territoire et s'inscrit dans la mission d'action sociale d'intérêt communautaire confiée au CIAS par la CCSUD. De l'observation des fragilités à l'accompagnement quotidien, ils dessinent une politique cohérente au service des habitants des quatre communes."
+  }
+ },
+ "page-actualites": {
+  "_type": "pageActualites",
+  "fields": {
+   "surtitre": "Informations",
+   "titre": "Actualités",
+   "intro": "Toutes les dernières nouvelles, actions et événements du CIAS de la CCSUD."
+  }
+ },
+ "page-communes": {
+  "_type": "pageCommunes",
+  "fields": {
+   "surtitre": "Territoire",
+   "titre": "Les communes",
+   "intro": "Les 4 communes membres du CIAS : Bandrélé, Chirongui, Bouéni et Kani-Kéli.",
+   "reseauSurtitre": "Notre réseau",
+   "reseauTitre": "4 communes, 1 territoire solidaire",
+   "reseauIntro": "Chaque commune assure la mise en oeuvre de l'action sociale au niveau communal, en coordination avec le CIAS pour les actions d'intérêt intercommunal."
+  }
+ },
+ "page-deliberations": {
+  "_type": "pageDeliberations",
+  "fields": {
+   "surtitre": "Transparence &amp; légalité",
+   "titre": "Délibérations",
+   "intro": "Retrouvez ici l'ensemble des décisions et procès-verbaux du conseil d'administration du CIAS de la CCSUD.",
+   "docsSurtitre": "Documents officiels",
+   "docsTitre": "Actes du conseil d'administration"
+  }
+ },
+ "page-contact": {
+  "_type": "pageContact",
+  "fields": {
+   "surtitre": "Nous joindre",
+   "titre": "Contact",
+   "intro": "Notre équipe vous accueille du lundi au vendredi pour vous accompagner dans vos démarches.",
+   "coordsSurtitre": "Coordonnées",
+   "coordsTitre": "Nous contacter",
+   "formTitre": "Envoyer un message",
+   "formIntro": "Une question, une demande d'information ? Remplissez le formulaire ci-dessous et nous vous répondrons dans les meilleurs délais."
+  }
+ }
+}
