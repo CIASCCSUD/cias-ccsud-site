@@ -60,7 +60,41 @@ export default defineConfig({
             S.listItem()
               .id('actualites')
               .title('Actualités')
-              .child(S.documentTypeList('actualite').title('Toutes les actualités')),
+              .child(
+                S.list()
+                  .title('Actualités')
+                  .items([
+                    S.listItem()
+                      .id('actu-toutes')
+                      .title('Toutes les actualités')
+                      .child(S.documentTypeList('actualite').title('Toutes les actualités').defaultOrdering([{ field: 'datePublication', direction: 'desc' }])),
+                    S.listItem()
+                      .id('actu-publiees')
+                      .title('🟢 Publiées')
+                      .child(
+                        S.documentList()
+                          .title('Actualités publiées')
+                          .filter('_type == "actualite" && statut == "publie"')
+                          .defaultOrdering([{ field: 'datePublication', direction: 'desc' }])
+                      ),
+                    S.listItem()
+                      .id('actu-brouillons')
+                      .title('🟠 Brouillons')
+                      .child(
+                        S.documentList()
+                          .title('Brouillons')
+                          .filter('_type == "actualite" && statut == "brouillon"')
+                      ),
+                    S.listItem()
+                      .id('actu-archivees')
+                      .title('⚪️ Archivées')
+                      .child(
+                        S.documentList()
+                          .title('Actualités archivées')
+                          .filter('_type == "actualite" && statut == "archive"')
+                      ),
+                  ])
+              ),
             S.listItem()
               .id('projets')
               .title('Nos projets')

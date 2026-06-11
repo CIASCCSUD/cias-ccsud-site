@@ -97,8 +97,21 @@ export default {
       name: 'dateDesc',
       by: [{ field: 'datePublication', direction: 'desc' }],
     },
+    {
+      title: 'Statut',
+      name: 'statut',
+      by: [{ field: 'statut', direction: 'asc' }, { field: 'datePublication', direction: 'desc' }],
+    },
   ],
   preview: {
-    select: { title: 'titre', subtitle: 'categorie', media: 'imageUne' },
+    select: { title: 'titre', categorie: 'categorie', statut: 'statut', media: 'imageUne' },
+    prepare(sel) {
+      var labels = { publie: '🟢 Publié', brouillon: '🟠 Brouillon', archive: '⚪️ Archivé' };
+      return {
+        title: sel.title,
+        subtitle: [labels[sel.statut] || sel.statut, sel.categorie].filter(Boolean).join(' · '),
+        media: sel.media,
+      };
+    },
   },
 };
